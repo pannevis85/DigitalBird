@@ -12,6 +12,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using API.Services;
+using API.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using API.Extensions;
 
 namespace API
 {
@@ -26,19 +32,14 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddApplicationServices(_config);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
-            //Add datacontext
-            //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(_config.GetConnectionString("Humse")));
-            services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(_config.GetConnectionString("SqlExpress")));
-            //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlite(_config.GetConnectionString("SqLite")));
-            
-            //Add CORS support, needed for security reasons
             services.AddCors();
+            services.AddIdentityServices(_config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,9 +56,9 @@ namespace API
 
             app.UseRouting();
 
-            //CRITICAL app.UseCors(); is between app.UseRouting(); & app.UseAuthorization();
+            //CRITICAL order here
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

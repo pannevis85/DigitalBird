@@ -21,9 +21,9 @@ export class AccountService {
           if (user) {
             localStorage.setItem('user', JSON.stringify(user));
             this.currentUserSource.next(user);
-          }
+          } 
         })
-    )
+    );
   }
   register(model:any) {
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
@@ -40,6 +40,6 @@ export class AccountService {
   }
   logout() {
     localStorage.removeItem('user');
-    this.currentUserSource.next(undefined);
+    this.currentUserSource.next(null);
   }
 }

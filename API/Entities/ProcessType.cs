@@ -1,18 +1,15 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities
 {
-    public class Vendor
+    public class ProcessType
     {
         public int Id { get; set; }
-        public string Status { get; set; } = "active";
+        public string Status { get; set; } ="active";
         [Required]
-        public string Name { get; set; }
-        public string Vendor_group { get; set; }
-        public string Type { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
+        public string TypeOfProcess { get; set; }
+        public string Note { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime LastEdited { get; set; } = DateTime.Now;
         public AppUser LastEditor { get; set; }

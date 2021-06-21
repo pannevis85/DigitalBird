@@ -1,21 +1,21 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities
 {
     public class Process
     {
         public int Id { get; set; }
-        [Required]
         public string Status { get; set; }
-        [Required]
-        public int Order_Priority { get; set; }
-        [Required]
+        public ProcessType ProcessType {get;set;}
+        public int? ProcessTypeId {get;set;}
+        public int OrderPriority { get; set; }
         public string Category { get; set; }
-        [Required]
         public string Activity { get; set; }
-        [Required]
-        public bool GDPR_Requirement { get; set; }
+        public bool GdprRequirement { get; set; }
         public string Note { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime LastEdited { get; set; } = DateTime.Now;
+        public AppUser LastEditor { get; set; }
+        public int? LastEditorId {get;set;}
     }
 }

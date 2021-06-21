@@ -4,14 +4,16 @@ using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210619104847_AddPartners")]
+    partial class AddPartners
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,56 +56,6 @@ namespace API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-                });
-
-            modelBuilder.Entity("API.Entities.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastEdited")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("LastEditorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PartnerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PartnerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LastEditorId");
-
-                    b.HasIndex("PartnerId");
-
-                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("API.Entities.Partner", b =>
@@ -152,21 +104,6 @@ namespace API.Migrations
                     b.HasIndex("LastEditorId");
 
                     b.ToTable("Partners");
-                });
-
-            modelBuilder.Entity("API.Entities.Contact", b =>
-                {
-                    b.HasOne("API.Entities.AppUser", "LastEditor")
-                        .WithMany()
-                        .HasForeignKey("LastEditorId");
-
-                    b.HasOne("API.Entities.Partner", "Partner")
-                        .WithMany()
-                        .HasForeignKey("PartnerId");
-
-                    b.Navigation("LastEditor");
-
-                    b.Navigation("Partner");
                 });
 
             modelBuilder.Entity("API.Entities.Partner", b =>

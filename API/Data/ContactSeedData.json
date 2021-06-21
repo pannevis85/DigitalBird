@@ -1,0 +1,80 @@
+[
+    {
+        "Name": "Jeffrey",
+        "Status": "new",
+        "PartnerId": 2,
+        "PartnerName": "OMG Hungary",
+        "Title": "GDPR officer",
+        "Email": "jeffrey@omghungary.com",
+        "Telephone": "52803266971",
+        "Note": "doesn’t answer emails",
+        "Created": "2019-12-02",
+        "LastEdited": "2019-12-03",
+        "LastEditorId": 1
+    },
+    {
+        "Name": "John",
+        "Status": "archived",
+        "PartnerId": 2,
+        "PartnerName": "OMG Hungary",
+        "Title": "Financial Director",
+        "Email": "john@omghungary.com",
+        "Telephone": "58133636811",
+        "Note": "retired",
+        "Created": "2019-02-27",
+        "LastEdited": "2019-05-19",
+        "LastEditorId": 2
+    },
+    {
+        "Name": "Sally",
+        "Status": "inactive",
+        "PartnerId": 3,
+        "PartnerName": "Telenor Kft",
+        "Title": "Compliance officer",
+        "Email": "sally@telenor.com",
+        "Telephone": "10031990325",
+        "Note": "left",
+        "Created": "2021-05-17",
+        "LastEdited": "2021-05-29",
+        "LastEditorId": 1
+    },
+    {
+        "Name": "Bob",
+        "Status": "active",
+        "PartnerId": 3,
+        "PartnerName": "Telenor Kft",
+        "Title": "CFO",
+        "Email": "bob@telenor.com",
+        "Telephone": "83309774498",
+        "Note": "friendly",
+        "Created": "2020-06-08",
+        "LastEdited": "2020-06-11",
+        "LastEditorId": 1
+    },
+    {
+        "Name": "Rocky",
+        "Status": "active",
+        "PartnerId": 3,
+        "PartnerName": "Telenor Kft",
+        "Title": "Gardener",
+        "Email": "rocky@telenor.com",
+        "Telephone": "56766980843",
+        "Note": "he waters the plants",
+        "Created": "2019-07-07",
+        "LastEdited": "2019-09-23",
+        "LastEditorId": 2
+    },
+    {
+        "Name": "Iron Man",
+        "Status": "active",
+        "PartnerId": 3,
+        "PartnerName": "Telenor Kft",
+        "Title": "Iron Man",
+        "Email": "iron man@telenor.com",
+        "Telephone": "71697468532",
+        "Note": "saving the world",
+        "Created": "2021-06-18",
+        "LastEdited": "2021-08-19",
+        "LastEditorId": 3
+    }
+]

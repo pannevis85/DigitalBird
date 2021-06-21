@@ -13,7 +13,7 @@ namespace API.Entities
         public string Email { get; set; }
         public string UserRole { get; set; }
         public string Status { get; set; }
-        public DateTime Creation_date { get; set; }
-        public DateTime LastActive_date { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime LastActive { get; set; } = DateTime.Now;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities
@@ -6,24 +7,24 @@ namespace API.Entities
     public class GdprRecord
     {
         public int Id { get; set; }
-        public string Status { get; set; }
-        public int Gdpr_record_year { get; set; }
-        public string Contract_Location { get; set; }
-        public string GDPR_Country { get; set; }
-        public string GDPR_Law { get; set; }
-        public string GDPR_Note { get; set; }
-        public string Archive_Status { get; set; }
+        public string Status { get; set; } ="active";
+        public int GdprRecordYear { get; set; } = DateTime.Now.Year;
+        public string GdprCountry { get; set; }
+        public string GGdprLaw { get; set; }
+        public string GdprNote { get; set; }
+        public string ContractLocation { get; set; }
+        public string ContractStatus { get; set; }
         public Partner Partner { get; set; }
-        public int Partner_Id { get; set; }
+        public int? PartnerId { get; set; }
         public Contact Contact { get; set; } //optional
-        public int? Contact_Id { get; set; } //optional
+        public int? ContactId { get; set; } //optional
         public Process Process { get; set; }
-        public int Process_Id { get; set; }
-        public Vendor Vendor { get; set; }
-        public int Vendor_Id { get; set; }
+        public int? ProcessId { get; set; }
         public VendorService VendorService { get; set; }
-        public int VendorService_Id { get; set; }
-        public DateTime Transaction_Date { get; set; }
-        public string Transaction_User { get; set; }
+        public int? VendorServiceId { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime LastEdited { get; set; } = DateTime.Now;
+        public AppUser LastEditor { get; set; }
+        public int? LastEditorId {get;set;}        
     }
 }

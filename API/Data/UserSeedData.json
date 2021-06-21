@@ -1,0 +1,42 @@
+[
+	{
+		"UserName": "rudolf",
+		"PasswordHash": "password",
+		"PasswordSalt": "password",
+		"Email": "rudolf@omnicommediagroup.com",
+		"UserRole": "admin",
+		"Status": "sexy",
+		"Created": "2019-09-19",
+		"LastActive": "2020-01-25"
+	},
+	{
+		"UserName": "tamas",
+		"PasswordHash": "password",
+		"PasswordSalt": "password",
+		"Email": "tamas@omnicommediagroup.com",
+		"UserRole": "user",
+		"Status": "very tall",
+		"Created": "2019-12-12",
+		"LastActive": "2018-10-02"
+	},
+	{
+		"UserName": "judit",
+		"PasswordHash": "password",
+		"PasswordSalt": "password",
+		"Email": "judit@omnicommediagroup.com",
+		"UserRole": "user",
+		"Status": "finance",
+		"Created": "2020-10-14",
+		"LastActive": "2020-02-16"
+	},
+	{
+		"UserName": "nora",
+		"PasswordHash": "password",
+		"PasswordSalt": "password",
+		"Email": "nora@omnicommediagroup.com",
+		"UserRole": "lawyer",
+		"Status": "lawyer",
+		"Created": "2021-04-04",
+		"LastActive": "2019-09-18"
+	}
+]

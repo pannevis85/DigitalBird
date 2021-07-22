@@ -1,1 +1,46 @@
-<p>partner-detail works!</p>
+<div *ngIf="partner">
+    <div class="container-fluid" style="margin-top: 20px;">
+        
+        <div class="icon-container">
+            <h5 class="list-group-header"> {{partner.name}} </h5>
+            <a routerLink='/partners/{{partner.id}}/edit' routerLinkActive="active"  class="icon-edit"></a>
+        </div>
+        <div class="list-group">
+            <table class="list-group-table">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td> <p class="list-group-item-text">Status:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.status}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Agency:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.agency}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Type:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.type}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Group:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.partner_group}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Email:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.email}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Address:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.address}}</p> </td>
+                    </tr>
+                    <tr>
+                        <td> <p class="list-group-item-text">Telephone:</p> </td>
+                        <td> <p class="list-group-item-text">{{partner.telephone}}</p> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

@@ -53,5 +53,17 @@ namespace API.Data
             }
             await context.SaveChangesAsync();
         }
+
+        public static async Task SeedVendors(DataContext context) 
+        {
+            if (await context.Vendors.AnyAsync()) return;
+            var vendorData = await System.IO.File.ReadAllTextAsync("Data/VendorSeedData.json");
+            var vendors = JsonSerializer.Deserialize<List<Vendor>>(vendorData);
+            foreach(var vendor in vendors) 
+            {
+                context.Vendors.Add(vendor);
+            }
+            await context.SaveChangesAsync();
+        }
     }
 }

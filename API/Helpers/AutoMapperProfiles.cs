@@ -9,6 +9,9 @@ namespace API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<Partner, PartnerDto>();
+            CreateMap<UserUpdateDto, AppUser>();
+            CreateMap<UserPasswordUpdateDto, AppUser>();
+            CreateMap<Vendor, VendorDto>();
 
         }
     }

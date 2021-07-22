@@ -15,5 +15,6 @@ namespace API.DTOs
         public string Agency { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastEdited { get; set; }
+        public int LastEditorId {get;set;}
     }
 }

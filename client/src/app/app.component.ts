@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from './_models/user';
+import { UserToken } from './_models/usertoken';
 import { AccountService } from './_services/account.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   setCurrentUser() {
-    const user: User = JSON.parse(localStorage.getItem('user'));
+    const user: UserToken = JSON.parse(localStorage.getItem('user'));
     if(user != null) {
       this.AccountService.setCurrentUser(user);
       console.log("user set from token");

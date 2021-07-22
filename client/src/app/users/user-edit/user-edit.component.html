@@ -1,0 +1,48 @@
+<div *ngIf="user">
+    <h5 class="title"> {{user.userName | titlecase}}'s Profile </h5>
+    <div class="margin-bottom" *ngIf="!passwordFormToggle">
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+            <table class="table-form">
+                <tr class="table-row">
+                    <td> <p class="form-text">User Role:</p> </td>
+                    <td> <input [(ngModel)]="user.userRole" name="userRole" cols="*" rows="1" class="form-control"></td>
+                </tr>
+                <tr class="table-row">
+                    <td> <p class="form-text">Status:</p> </td>
+                    <td> <input [(ngModel)]="user.status" name="status" cols="*" rows="1" class="form-control"></td>
+                </tr>
+                <tr class="table-row">
+                    <td> <p class="list-text">Email:</p> </td>
+                    <td> <input [(ngModel)]="user.email" name="email" cols="*" rows="1" class="form-control"></td>
+                </tr>
+                <tr class="table-row">
+                    <td> <p class="list-text">User since:</p> </td>
+                    <td> <p class="list-text"><date-input>{{user.created}}</date-input> </p></td>
+                </tr>
+            </table>
+
+            <div class="margin-top alert-warning" *ngIf="editForm.dirty">
+                <p class="list-group-item-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
+                <button form="editForm" type="submit" class="btn btn-success">Save Changes</button>
+                <button form="n.a. reload page" type="button" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
+            </div>
+        </form>
+        <div class="margin-top" *ngIf="!editForm.dirty">
+            <button (click)="formToggle()" class="btn btn-info">Click to change password</button>
+        </div>
+        
+    </div>
+            
+    <div class="margin-top" *ngIf="passwordFormToggle">
+        <button form="n.a. reload page" type="button" (click)="reloadRoute()" class="btn btn-warning">Cancel password change</button>
+        <form #editForm="ngForm" id="passwordForm" (ngSubmit)="updateUserPassword()">
+            <tr> <input [(ngModel)]="userPassword.password" class="form-control margin-top" type="password" name="password" id="password" placeholder="current password"> </tr>
+            <tr> <input [(ngModel)]="userPassword.passwordNew" class="form-control margin-top" type="password" name="passwordNew" id="passwordNew" placeholder="new password"> </tr>
+            <tr> <input [(ngModel)]="userPassword.passwordConfirm" class="form-control margin-top" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="new password again!"></tr>    
+            
+            <button form="passwordForm" type="submit" class="btn btn-success margin-top" >Change password</button>
+        </form>
+
+    </div>
+</div>
+

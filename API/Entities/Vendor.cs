@@ -6,10 +6,10 @@ namespace API.Entities
     public class Vendor
     {
         public int Id { get; set; }
-        public string Status { get; set; } = "active";
         [Required]
         public string Name { get; set; }
-        public string Vendor_group { get; set; }
+        public string Status { get; set; } = "active";        
+        public string VendorGroup { get; set; }
         public string Type { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }

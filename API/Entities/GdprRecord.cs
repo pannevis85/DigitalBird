@@ -18,7 +18,7 @@ namespace API.Entities
         public int? PartnerId { get; set; }
         public Contact Contact { get; set; } //optional
         public int? ContactId { get; set; } //optional
-        public Process Process { get; set; }
+        public ServiceProcess Process { get; set; }
         public int? ProcessId { get; set; }
         public VendorService VendorService { get; set; }
         public int? VendorServiceId { get; set; }

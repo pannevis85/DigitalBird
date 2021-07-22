@@ -1,4 +1,48 @@
-<h3>List of partners</h3>
-<ng-container>
+<div *ngIf="partners">
+    <h3 class="title">List of partners</h3>
+    <div class="icon-container">
+        <img class="icon-add">        
+    </div>
+    <form>
+        <input name="search" type="text"  placeholder="search partners">
+    </form>
+
+    <div class="list-group margin-top" *ngFor="let partner of partners">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <table class="list-group-table">
+                    <colgroup>
+                        <col style="width: 70%;">
+                        <col style="width: 15%;">
+                        <col style="width: 15%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5 class="list-group-header"> {{partner.name}} </h5>
+                                <p class="list-group-item-text">{{partner.partner_group}}  group</p>
+                            </td>
+                            <td>
+                                <img src="{{partner.statusUrl}}" alt="{{partner.status}}" title="{{partner.status}}">
+                                <p class="list-group-item-text">{{partner.status}} </p>
+                            </td>
+                            <td>
+                                <a routerLink='/partners/{{partner.id}}' routerLinkActive='active'>
+                                    <div class="appear-on-hover">
+                                    
+                                        <div class="icon-container">
+                                            <img class="icon-go-to">
+                                        </div>
+                                    
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
     
-</ng-container>
+    </div>
+    
+</div>

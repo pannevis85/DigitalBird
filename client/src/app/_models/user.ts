@@ -1,4 +1,9 @@
 export interface User {
+    userId : number;
     userName : string;
-    token : string;
+    email : string;
+    status : string;
+    userRole : string;
+    password : string;
+    created : Date;
 }

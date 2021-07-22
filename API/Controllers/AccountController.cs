@@ -21,7 +21,7 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        public async Task<ActionResult<UserTokenDto>> Register(RegisterDto registerDto)
         {
             if (await UserExists(registerDto.Username))
                 return BadRequest("Username already exists");
@@ -36,15 +36,16 @@ namespace API.Controllers
             };
             _context.AppUsers.Add(user);
             await _context.SaveChangesAsync();
-            return new UserDto
+            return new UserTokenDto
             {
+                Userid = user.Id,
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
+        public async Task<ActionResult<UserTokenDto>> Login(LoginDto loginDto)
         {
             var user = await _context.AppUsers.SingleOrDefaultAsync(x => x.UserName.ToLower() == loginDto.Username.ToLower());
             if (user == null) return Unauthorized("Invalid username");
@@ -56,8 +57,9 @@ namespace API.Controllers
                 if (computedHash[i] != user.PasswordHash[i])
                     return Unauthorized("Invalid Password");
             }
-            return new UserDto
+            return new UserTokenDto
             {
+                Userid = user.Id,
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };

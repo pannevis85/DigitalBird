@@ -1,0 +1,7 @@
+<div *ngIf="service">
+    <h5 class="title"> {{service.name}} </h5>
+    <p><a routerLink='/services/{{service.id}}/edit' class="icon-edit"></a>Edit service</p>    
+    <label>Description: {{service.description}}</label>
+    <label>Status:      {{service.status}}</label>
+    <label>Created:     {{service.created}}</label>   
+</div>

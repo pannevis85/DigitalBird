@@ -154,6 +154,39 @@ namespace API.Migrations
                     b.ToTable("Partners");
                 });
 
+            modelBuilder.Entity("API.Entities.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastEdited")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("LastEditorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LastEditorId");
+
+                    b.ToTable("Services");
+                });
+
             modelBuilder.Entity("API.Entities.Vendor", b =>
                 {
                     b.Property<int>("Id")
@@ -212,6 +245,15 @@ namespace API.Migrations
                 });
 
             modelBuilder.Entity("API.Entities.Partner", b =>
+                {
+                    b.HasOne("API.Entities.AppUser", "LastEditor")
+                        .WithMany()
+                        .HasForeignKey("LastEditorId");
+
+                    b.Navigation("LastEditor");
+                });
+
+            modelBuilder.Entity("API.Entities.Service", b =>
                 {
                     b.HasOne("API.Entities.AppUser", "LastEditor")
                         .WithMany()

@@ -1,24 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+label {
+    text-align:left;
+    clear: both;
+    float:left;
+    margin-right:10px;
+    min-width: 100px;
+}
+
 .title {
-    margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 25px;
     font-weight: bold;
 }
+
+.list {
+    border: 1px solid darkblue;
+    height: auto;
+    margin-top: 10px;
+    width: 700px;
+    padding: 5px;
+    align-content: center;
+    justify-content: center;
+    text-align: left;
+}
+
+
 .margin-top {
     margin-top: 20px;
 }
 .margin-bottom {
     margin-bottom: 20px;
 }
+.margin-left {
+    margin-left: 10px;
+}
+
 .form-title {
     font-size: 25px;
     font-weight: bold;
+}
+
+.form-table {    
+    border-spacing: 0px;
+    margin: 0px;
+    width: 650px;
+    table-layout: auto;   
+    border: 1px transparent;
+    row-gap: 0px;
+    
 }
 .form-text {
     font-size: 16px;
     font-style: italic;
     vertical-align: middle;
     text-align: left;   
+}
+
+.list-text {    
+    font-size: 16px;
+    font-style: italic;
 }
 .form-input-text {
     font-size: 16px;
@@ -27,62 +67,22 @@
     text-align: left;   
 }
 
-
-table,
-.table-form {    
-    width: 500px;
-    table-layout: auto;   
-    
-}
-.table-row {
-    border: 1px solid transparent;
-    height: 30px;
-    margin-bottom: 20px;
-    vertical-align: middle;
-    text-align: left;
-    height: 30px;
-}
-
-.list-group {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 650px;
-}
-.list-header {
-    margin-bottom: 10px;
-    font-size: 20px;
+.list-header {    
+    font-size: 16px;
     font-weight: bold;
+    color: darkblue;    
 }
-.list-text {
-    margin: 0px;
-    font-size: 14px;
-    font-style: italic;
-}
-
-.list-group-table {
-    border: 1px;
-    width: 600px;
-    color: darkblue;
-}
-.list-group-header {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    
-}
-.list-group-item-text {
-    margin: 0px;
-    font-size: 14px;
-    font-style: italic;
-}
-
 .appear-on-hover {
     display: none;
 }
-.list-group-item:hover .appear-on-hover {
+.row:hover .appear-on-hover {
     display: inline-block;
-
 }
+
+
+
+
+
 .icon-container {
     margin: 5px;
 } 
@@ -93,12 +93,15 @@ img {
     object-fit: fill;
     background-repeat: no-repeat;
 }
-.icon, .icon-add, .icon-edit {
+.icon, .icon-add, .icon-edit, .icon-go-to {
     height: 30px;
     width: 30px;  
     margin: 5px;
     object-fit: fill;
     background-repeat: no-repeat;
+    display: inline;
+    vertical-align: middle;
+    
 }
 .icon-add {
     content: url("./assets/images/icon-add.png");
@@ -106,9 +109,15 @@ img {
 .icon-edit {
     content: url("./assets/images/icon-edit.png");
 }
+.icon-search {
+    background-image: url("./assets/images/icon-search.png");
+    background-size:contain;
+    vertical-align: middle;
+    height: 30px;
+    width: 30px;    
+}
 .icon-go-to {
     content: url("./assets/images/icon-arrow-right.png");
     height: 40px;
-    width: 40px;
-    margin: 0px;
+    width: 40px;    
 }

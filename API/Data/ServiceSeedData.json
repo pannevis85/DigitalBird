@@ -1,0 +1,74 @@
+[
+    {
+	"Name": "Base process",
+	"Status": "active",
+	"Description": "basic process template",
+	"Created": "2019-02-27",
+	"LastEdited": "2019-03-28",
+	"LastEditorId": 1
+},
+{
+	"Name": "Negotiated Display",
+	"Status": "active",
+	"Description": "display",
+	"Created": "2021-04-28",
+	"LastEdited": "2021-05-16",
+	"LastEditorId": 2
+},
+{
+	"Name": "Google Ads",
+	"Status": "active",
+	"Description": "google",
+	"Created": "2018-11-24",
+	"LastEdited": "2019-01-17",
+	"LastEditorId": 3
+},
+{
+	"Name": "Paid Social (Facebook, Instragram)",
+	"Status": "active",
+	"Description": "facebook",
+	"Created": "2019-05-21",
+	"LastEdited": "2019-08-05",
+	"LastEditorId": 1
+},
+{
+	"Name": "Social Content Management",
+	"Status": "inactive",
+	"Description": "other social",
+	"Created": "2020-05-26",
+	"LastEdited": "2020-08-08",
+	"LastEditorId": 1
+},
+{
+	"Name": "Programmatic Buying",
+	"Status": "active",
+	"Description": "programmatic",
+	"Created": "2020-05-19",
+	"LastEdited": "2020-08-11",
+	"LastEditorId": 1
+},
+{
+	"Name": "eDM Marketing",
+	"Status": "active",
+	"Description": "whatever eDM is",
+	"Created": "2020-12-26",
+	"LastEdited": "2021-03-30",
+	"LastEditorId": 1
+},
+{
+	"Name": "Search Engine Optimization",
+	"Status": "active",
+	"Description": "SEO",
+	"Created": "2020-05-28",
+	"LastEdited": "2020-07-15",
+	"LastEditorId": 1
+},
+{
+	"Name": "Web Analytics & Tag Management",
+	"Status": "active",
+	"Description": "analytics",
+	"Created": "2019-05-08",
+	"LastEdited": "2019-08-06",
+	"LastEditorId": 1
+}
+]

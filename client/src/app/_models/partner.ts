@@ -11,5 +11,5 @@ export interface Partner {
     created:       Date;
     lastEdited:    Date;
     lastEditorId:  number;
-    statusUrl:     string;
+    statusUrl?:     string;
 }

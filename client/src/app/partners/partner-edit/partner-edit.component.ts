@@ -1,5 +1,6 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Partner } from 'src/app/_models/partner';
@@ -11,16 +12,27 @@ import { PartnersService } from 'src/app/_services/partners.service';
   styleUrls: ['./partner-edit.component.css']
 })
 export class PartnerEditComponent implements OnInit {
-  title:string;
   partnerId: number;
   partner: Partner;
+  isNewPartner: boolean;
+  partnerForm: FormGroup;
+  agencyList = [{ value: 'OMG', display:"OMG"}, { value:'PHD', display:'PHD'},
+    { value:'OMD', display:'OMD'},
+    { value:'OTHER', display:'OTHER'}];
+  statusList = [{ value: 'New', display:"New"}, 
+    { value:'Active', display:'Active'},
+    { value:'Inactive', display:'Inactive'},
+    { value:'in Process', display:'In process'},
+    { value:'Archived', display:'Archived'}];
+  
   @ViewChild('editForm') editForm: NgForm;
   mySubscription: any;
 
   constructor( private partnerService: PartnersService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService) { 
+    private toastr: ToastrService
+    ) { 
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.mySubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -31,19 +43,33 @@ export class PartnerEditComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.loadPartner();
-    this.title = "Edit " + this.partner.name.toString();
-  }
-  loadPartner() {
     this.partnerId = Number(this.activatedRoute.snapshot.paramMap.get('partnerid'))
-    this.partnerService.getPartner(this.partnerId).subscribe(partner => {
-      this.partner = partner;
-    })
+    //when creating new partner, partnerid is missing from url, so it will default to 0
+    this.isNewPartner = (this.partnerId === 0) ? true : false;
+    if (this.isNewPartner) {
+      let newObject = <Partner> {}; 
+      this.partner = newObject;
+    }
+    else { 
+      this.loadPartner(); 
+    }
   }
+  loadPartner() {    
+    this.partnerService.getPartner(this.partnerId).subscribe(response => {
+      this.partner = response;
+    });
+  }
+
   updatePartner() {
     this.partnerService.updatePartner(this.partner).subscribe(response => {
       this.toastr.success("Partner updated");
-      this.reloadRoute();
+      this.router.navigateByUrl("partners/" + this.partnerId);
+    })
+  } 
+  createPartner() {
+    this.partnerService.createPartner(this.partner).subscribe(response => {
+      this.toastr.success("Partner created");
+      this.router.navigateByUrl("partners")
     })
   }
   reloadRoute() {

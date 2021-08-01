@@ -1,50 +1,51 @@
 <div *ngIf="partner">
-    <h5 class="list-group-header">Edit partner</h5>
-    <div class="list-group">
-        <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePartner()">
-            <colgroup>
-                <col style="width: 100px;">
-                <col style="width: auto;">
-            </colgroup>
-            <tr class="table-row">
-                <td> <p class="form-text">Name:</p> </td>
-                <td> <input [(ngModel)]="partner.name" name="name" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Status:</p> </td>
-                <td> <input [(ngModel)]="partner.status" name="status" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Agency:</p> </td>
-                <td> <input [(ngModel)]="partner.agency" name="agency" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Type:</p> </td>
-                <td> <input [(ngModel)]="partner.type" name="type" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Group:</p> </td>
-                <td> <input [(ngModel)]="partner.partner_group" name="partner_group" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Email:</p> </td>
-                <td> <input [(ngModel)]="partner.email" name="email" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Address:</p> </td>
-                <td> <input [(ngModel)]="partner.address" name="address" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            <tr class="table-row">
-                <td> <p class="form-text">Telephone:</p> </td>
-                <td> <input [(ngModel)]="partner.telephone" name="telephone" cols="*" rows="1" class="form-control"> </td>
-            </tr>
-            
-            <div class="margin-top alert-warning" *ngIf="editForm.dirty">
-                <p class="list-group-item-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
-                <button form="editForm" type="submit" class="btn btn-success">Save Changes</button>
-                <button form="n.a. reload page" type="button" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
-            </div>
-        </form>
-    </div>
+    <h3 *ngIf="isNewPartner" class="title">Create new partner</h3>
+    <h3 *ngIf="!isNewPartner" class="title">Edit partner</h3>
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePartner()" style="margin-top: 20px;">
+        <div class="form-group">
+            <label>Name: </label>
+            <input [(ngModel)]="partner.name" name="name" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
+        <div class="form-group">
+            <label>Status: </label>
+            <select name="status" style="width:200px" [(ngModel)]="partner.status" class="form-control">
+                <option *ngFor="let status of statusList" [value]="status.value"> {{status.display}}</option>
+            </select>            
+        </div>
+        <div class="form-group">
+            <label>Agency: </label>
+            <select name="agency" style="width:100px" [(ngModel)]="partner.agency" class="form-control">
+                <option *ngFor="let agency of agencyList" [value]="agency.value"> {{agency.display}}</option>
+            </select>            
+        </div>
+        <div class="form-group">
+            <label>Type: </label>
+            <input [(ngModel)]="partner.type" name="type" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
+        <div class="form-group">
+            <label>Group: </label>
+            <input [(ngModel)]="partner.partner_group" name="group" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
+        <div class="form-group">
+            <label>Email: </label>
+            <input [(ngModel)]="partner.email" name="email" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
+        <div class="form-group">
+            <label>Address: </label>
+            <input [(ngModel)]="partner.address" name="address" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
+        <div class="form-group">
+            <label>Telephone: </label>
+            <input [(ngModel)]="partner.telephone" name="telephone" cols="*" rows="1" class="form-control" style="width:400px">
+        </div>
 
+        <div class="margin-top alert-warning"  *ngIf="editForm.dirty">
+            <p class="form-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
+            <button form="editForm" *ngIf="!isNewPartner" type="submit" class="btn btn-success">Save Changes</button>
+            <button form="n.a." *ngIf="isNewPartner" (click)="createPartner()" class="btn btn-success">Create new partner</button>
+            <button form="n.a" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
+        </div>
+
+    </form>
 </div>
+

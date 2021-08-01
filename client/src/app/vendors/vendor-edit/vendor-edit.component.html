@@ -1,0 +1,47 @@
+<div *ngIf="vendor">
+    <h3 *ngIf="isNewVendor" class="title">Create new vendor</h3>
+    <h3 *ngIf="!isNewVendor" class="title">Edit vendor</h3>
+    
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="updateVendor()">
+        <table class="form-table">
+            <colgroup>
+                <col style="width: 100px;">
+                <col style="width: 400px;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td> <p class="form-text">Name:</p> </td>
+                    <td> <input [(ngModel)]="vendor.name" name="name" cols="*" rows="1" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td> <p class="form-text">Status:</p> </td>
+                    <td> <input [(ngModel)]="vendor.status" name="status" cols="*" rows="1" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td> <p class="form-text">Type:</p> </td>
+                    <td> <input [(ngModel)]="vendor.type" name="type" cols="*" rows="1" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td> <p class="form-text">Group:</p> </td>
+                    <td> <input [(ngModel)]="vendor.vendorGroup" name="vendorGroup" cols="*" rows="1" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td> <p class="form-text">Email:</p> </td>
+                    <td> <input [(ngModel)]="vendor.email" name="email" cols="*" rows="1" class="form-control"> </td>
+                </tr>
+                <tr>
+                    <td> <p class="form-text">Address:</p> </td>
+                    <td> <input [(ngModel)]="vendor.address" name="address" cols="*" rows="1" class="form-control"> </td>
+                </tr>                
+            </tbody>            
+        </table>
+        
+        <div class="margin-top alert-warning" *ngIf="editForm.dirty">
+            <p class="list-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
+            <button form="editForm" *ngIf="!isNewVendor" type="submit" class="btn btn-success">Save Changes</button>
+            <button form="n.a. create new vendor" *ngIf="isNewVendor" (click)="createVendor()" class="btn btn-success">Create new vendor</button>
+            <button form="n.a. reload page" type="button" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
+        </div>
+    </form>
+
+</div>

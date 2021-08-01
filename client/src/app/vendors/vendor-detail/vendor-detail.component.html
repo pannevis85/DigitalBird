@@ -1,1 +1,7 @@
-<p>vendor-detail works!</p>
+<div *ngIf="vendor">
+    <h5 class="title"> {{vendor.name}} </h5>
+    <p><a routerLink='/partners/{{vendor.id}}/edit' class="icon-edit"></a>Edit vendor</p>    
+    <label>Group: {{vendor.vendorGroup}}</label>
+    <label>Status: {{vendor.status}}</label>
+    <label>Type: {{vendor.type}}</label>
+</div>

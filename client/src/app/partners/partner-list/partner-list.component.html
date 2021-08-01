@@ -1,48 +1,29 @@
-<div *ngIf="partners">
+<div *ngIf="partners$">
     <h3 class="title">List of partners</h3>
-    <div class="icon-container">
-        <img class="icon-add">        
-    </div>
-    <form>
-        <input name="search" type="text"  placeholder="search partners">
-    </form>
+     <p><a routerLink='/partners/create' class="icon-add" ></a> Create new partner</p>        
+    <input name="search" [(ngModel)]="searchTerm" (keyup.enter)="searchPartners()" 
+        type="search"  placeholder="search partners" class="search-bar" >
+    <hr />
 
-    <div class="list-group margin-top" *ngFor="let partner of partners">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <table class="list-group-table">
-                    <colgroup>
-                        <col style="width: 70%;">
-                        <col style="width: 15%;">
-                        <col style="width: 15%;">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h5 class="list-group-header"> {{partner.name}} </h5>
-                                <p class="list-group-item-text">{{partner.partner_group}}  group</p>
-                            </td>
-                            <td>
-                                <img src="{{partner.statusUrl}}" alt="{{partner.status}}" title="{{partner.status}}">
-                                <p class="list-group-item-text">{{partner.status}} </p>
-                            </td>
-                            <td>
-                                <a routerLink='/partners/{{partner.id}}' routerLinkActive='active'>
-                                    <div class="appear-on-hover">
-                                    
-                                        <div class="icon-container">
-                                            <img class="icon-go-to">
-                                        </div>
-                                    
-                                    </div>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </li>
-        </ul>
-    
-    </div>
-    
+    <mat-nav-list>
+        <mat-list-item *ngFor="let partner of partners$ | async">
+            <a routerLink='/partners/{{partner.id}}' routerLinkActive='active' style="text-decoration: none">
+                <div class="list">
+                    <div class="row">
+                        <div class="col-9">
+                            <h5 class="list-header"> {{partner.name}} </h5>
+                            <p class="list-text">{{partner.partner_group}}  group</p>
+                        </div>
+                        <div class="col-2" >
+                            <img src="{{partner.statusUrl}}" alt="{{partner.status}}" title="{{partner.status}}">
+                            <p class="list-text">{{partner.status}} </p>
+                        </div>
+                        <div class="col-1 appear-on-hover">
+                            <img class="icon-go-to appear-on-hover">
+                        </div>
+                    </div>                    
+                </div>               
+            </a>
+        </mat-list-item>
+    </mat-nav-list>    
 </div>

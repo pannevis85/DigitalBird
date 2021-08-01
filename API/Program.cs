@@ -33,6 +33,7 @@ namespace API
                 await Seed.SeedPartners(context);
                 await Seed.SeedContacts(context);
                 await Seed.SeedVendors(context);
+                await Seed.SeedServices(context);
             } 
             catch (Exception e) 
             {

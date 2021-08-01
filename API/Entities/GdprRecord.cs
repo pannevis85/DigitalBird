@@ -16,10 +16,12 @@ namespace API.Entities
         public string ContractStatus { get; set; }
         public Partner Partner { get; set; }
         public int? PartnerId { get; set; }
+        public string PartnerName { get; set; }
         public Contact Contact { get; set; } //optional
         public int? ContactId { get; set; } //optional
-        public ServiceProcess Process { get; set; }
-        public int? ProcessId { get; set; }
+        public string ContactName { get; set; } //optional
+        public Service ServiceProcess { get; set; }
+        public int? ServiceProcessId { get; set; }
         public VendorService VendorService { get; set; }
         public int? VendorServiceId { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;

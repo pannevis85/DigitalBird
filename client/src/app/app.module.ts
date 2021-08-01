@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,15 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
+import { VendorEditComponent } from './vendors/vendor-edit/vendor-edit.component';
+import { ServiceListComponent } from './services/service-list/service-list.component';
+import { ServiceDetailComponent } from './services/service-detail/service-detail.component';
+import { ServiceEditComponent } from './services/service-edit/service-edit.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { ProcessListComponent } from './services/process/process-list/process-list.component';
+import { ProcessDetailComponent } from './services/process/process-detail/process-detail.component';
+import { ProcessEditComponent } from './services/process/process-edit/process-edit.component';
 
 
 @NgModule({
@@ -38,6 +47,13 @@ import { PartnerEditComponent } from './partners/partner-edit/partner-edit.compo
     ServerErrorComponent,
     UserEditComponent,
     PartnerEditComponent,
+    VendorEditComponent,
+    ServiceListComponent,
+    ServiceDetailComponent,
+    ServiceEditComponent,
+    ProcessListComponent,
+    ProcessDetailComponent,
+    ProcessEditComponent
   ],
   imports: [
     BrowserModule,
@@ -45,11 +61,14 @@ import { PartnerEditComponent } from './partners/partner-edit/partner-edit.compo
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
+    NgxSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

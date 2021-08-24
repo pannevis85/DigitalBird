@@ -33,7 +33,7 @@ namespace API.Controllers
         public async Task<ActionResult<IEnumerable<PartnerDto>>> SearchPartners(string searchTerm)
         {
             var partners = await _context.Partners.AsQueryable().ToListAsync();
-            var searchList = partners.Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()));
+            var searchList = partners.Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()) || x.Partner_group.ToLower().Contains(searchTerm.ToLower()));
             var orderedList = searchList.OrderBy( x => x.Name);
             return Ok(_mapper.Map<IEnumerable<PartnerDto>>(orderedList));
             
@@ -48,8 +48,7 @@ namespace API.Controllers
         [HttpPut("{id}/edit")]
         public async Task<ActionResult> UpdatePartner(PartnerDto partnerDto) {
             var partner = await _context.Partners.FirstOrDefaultAsync(p => p.Id == partnerDto.Id);
-            if (partner != null) return BadRequest("Partner doesnt exist");
-            if (partner.Name == partnerDto.Name) return BadRequest("Partner name already exists");
+            if (partner == null) return BadRequest("Partner doesnt exist");
             partner.Name = partnerDto.Name;
             partner.Status = partnerDto.Status;
             partner.Partner_group = partnerDto.Partner_group;
@@ -72,9 +71,8 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreatePartner(PartnerDto partnerDto) 
         {
-            var partnerCheck = await _context.Partners.FirstOrDefaultAsync(p => p.Name == partnerDto.Name);
-            if (partnerCheck != null) return BadRequest("Partner doesnt exist");
-            if (partnerCheck.Name == partnerDto.Name) return BadRequest("Partner name already exists");
+            var check = await _context.Partners.AnyAsync(p => p.Name == partnerDto.Name);
+            if (check) return BadRequest("Partner name already exists");
             var partner = new Partner {
                 Name = partnerDto.Name,
                 Status = partnerDto.Status,

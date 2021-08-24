@@ -20,10 +20,6 @@ namespace API.Entities
         public Contact Contact { get; set; } //optional
         public int? ContactId { get; set; } //optional
         public string ContactName { get; set; } //optional
-        public Service ServiceProcess { get; set; }
-        public int? ServiceProcessId { get; set; }
-        public VendorService VendorService { get; set; }
-        public int? VendorServiceId { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime LastEdited { get; set; } = DateTime.Now;
         public AppUser LastEditor { get; set; }

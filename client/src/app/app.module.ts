@@ -27,9 +27,16 @@ import { ServiceDetailComponent } from './services/service-detail/service-detail
 import { ServiceEditComponent } from './services/service-edit/service-edit.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
-import { ProcessListComponent } from './services/process/process-list/process-list.component';
-import { ProcessDetailComponent } from './services/process/process-detail/process-detail.component';
-import { ProcessEditComponent } from './services/process/process-edit/process-edit.component';
+import { ProcessEditComponent } from './services/process-edit/process-edit.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/Input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { ProcessDialogBoxComponent } from './services/process-dialog-box/process-dialog-box.component';
+
 
 
 @NgModule({
@@ -51,9 +58,8 @@ import { ProcessEditComponent } from './services/process/process-edit/process-ed
     ServiceListComponent,
     ServiceDetailComponent,
     ServiceEditComponent,
-    ProcessListComponent,
-    ProcessDetailComponent,
-    ProcessEditComponent
+    ProcessEditComponent,
+    ProcessDialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,13 @@ import { ProcessEditComponent } from './services/process/process-edit/process-ed
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatTableModule,
+    MatSortModule,
+    MatInputModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

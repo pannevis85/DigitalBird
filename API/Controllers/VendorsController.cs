@@ -68,8 +68,8 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreateVendor(VendorDto vendorDto) 
         {
-            var serviceToCheck = await _context.Services.FirstOrDefaultAsync(p => p.Name == vendorDto.Name);
-            if (serviceToCheck.Name == vendorDto.Name) return BadRequest("Vendor name already exists");
+            var check = await _context.Services.AnyAsync(p => p.Name == vendorDto.Name);
+            if (check) return BadRequest("Vendor name already exists");
             var vendor = new Vendor {
                 Name = vendorDto.Name,
                 Status = vendorDto.Status,

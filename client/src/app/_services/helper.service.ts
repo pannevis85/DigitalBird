@@ -8,8 +8,9 @@ export class HelperService {
   constructor() { }
 
   getStatusUrl(status: string) {
+    if (!status) return;
     let statusUrl: string ="./assets/images/";
-    switch (status) {
+    switch (status.toLowerCase()) {
       case "inactive":
         statusUrl = "icon-circle-gray.png"
         break;

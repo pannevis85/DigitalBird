@@ -13,6 +13,7 @@ namespace API.Helpers
             CreateMap<UserPasswordUpdateDto, AppUser>();
             CreateMap<Vendor, VendorDto>();
             CreateMap<Service, ServiceDto>();
+            CreateMap<Process, ProcessDto>();
 
         }
     }

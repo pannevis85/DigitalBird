@@ -16,11 +16,7 @@
                         <a class="nav-link" routerLink='/services' routerLinkActive='active'>Services</a>
                     </li>
                 </ng-container>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink='/errors' routerLinkActive='active'>Errors</a>
-                </li>
             </ul>
-
 
             <div class="dropdown" *ngIf="(accountService.currentUserToken$ | async) as user" dropdown style="margin-left: 100px;">
                 <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}} </a>

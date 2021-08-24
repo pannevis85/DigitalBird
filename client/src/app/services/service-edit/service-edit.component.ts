@@ -16,7 +16,7 @@ export class ServiceEditComponent implements OnInit {
   isNewService:boolean;
   statusList = [{ value: 'Primary', display:"Primary"}, 
     { value:'Active', display:'Active'},
-    { value:'inActive', display:'inActive'},
+    { value:'Inactive', display:'Inactive'},
     { value:'Archived', display:'Archived'}];
     
     serviceForm: FormGroup;

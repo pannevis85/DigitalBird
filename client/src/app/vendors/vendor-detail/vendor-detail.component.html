@@ -1,7 +1,13 @@
 <div *ngIf="vendor">
-    <h5 class="title"> {{vendor.name}} </h5>
-    <p><a routerLink='/partners/{{vendor.id}}/edit' class="icon-edit"></a>Edit vendor</p>    
-    <label>Group: {{vendor.vendorGroup}}</label>
-    <label>Status: {{vendor.status}}</label>
-    <label>Type: {{vendor.type}}</label>
+    <div class="horizontal-container">
+        <h2 class="title"> {{vendor.name}} </h2>
+        <p><a routerLink='/partners/{{vendor.id}}/edit' class="icon-edit"></a>Edit vendor</p>    
+        
+    </div>
+
+    <mat-list>
+        <p>Group:   {{vendor.vendorGroup}}</p>
+        <p>Status:  {{vendor.status}}</p>
+        <p>Type:    {{vendor.type}}</p>
+    </mat-list>
 </div>

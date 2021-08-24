@@ -18,8 +18,8 @@
         </div>
         <div class="margin-top alert-warning"  *ngIf="editForm.dirty">
             <p class="form-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
-            <button form="editForm" *ngIf="!isNewservice" type="submit" class="btn btn-success">Save Changes</button>
-            <button form="n.a." *ngIf="isNewservice" (click)="createService()" class="btn btn-success">Create new service</button>
+            <button form="editForm" *ngIf="!isNewService" type="submit" class="btn btn-success">Save Changes</button>
+            <button form="n.a." *ngIf="isNewService" (click)="createService()" class="btn btn-success">Create new service</button>
             <button form="n.a" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
         </div>
 

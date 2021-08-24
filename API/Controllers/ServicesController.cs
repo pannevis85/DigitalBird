@@ -40,10 +40,12 @@ namespace API.Controllers
             return _mapper.Map<ServiceDto>(service);
         }
         [HttpPut("{id}/edit")]
-        public async Task<ActionResult> UpdateService(ServiceDto serviceDto) {
+        public async Task<ActionResult> UpdateService(ServiceDto serviceDto) 
+        {
+            var check = await _context.Services.AnyAsync(p => p.Name == serviceDto.Name);
+            if (!check) return BadRequest("Service doesnt exists");
             var service = await _context.Services.FirstOrDefaultAsync(p => p.Id == serviceDto.Id);
-            if (service != null) return BadRequest("Service doesnt exist");
-            if (service.Name == serviceDto.Name) return BadRequest("Service name already exists");
+            // if (service == null) return BadRequest("Service doesnt exist");
             service.Name = serviceDto.Name;
             service.Status = serviceDto.Status;
             service.Description = serviceDto.Description;
@@ -58,11 +60,12 @@ namespace API.Controllers
             }
             return NoContent();
         }
+        
         [HttpPost("create")]
         public async Task<ActionResult> CreateService(ServiceDto serviceDto) 
         {
-            var serviceToCheck = await _context.Services.FirstOrDefaultAsync(p => p.Name == serviceDto.Name);
-            if (serviceToCheck.Name == serviceDto.Name) return BadRequest("Service name already exists");
+            var check = await _context.Services.AnyAsync(p => p.Name == serviceDto.Name);
+            if (check) return BadRequest("Service name already exists");
             var service = new Service {
                 Name = serviceDto.Name,
                 Status = serviceDto.Status,

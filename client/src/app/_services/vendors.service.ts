@@ -23,7 +23,7 @@ export class VendorsService {
         vendor.statusUrl = this.helper.getStatusUrl(vendor.status)
         return vendor;
       })
-    this.vendors = array
+      this.vendors = array
       return array;
     }))
   }

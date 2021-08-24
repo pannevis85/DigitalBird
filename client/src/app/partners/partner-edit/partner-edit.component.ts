@@ -16,7 +16,8 @@ export class PartnerEditComponent implements OnInit {
   partner: Partner;
   isNewPartner: boolean;
   partnerForm: FormGroup;
-  agencyList = [{ value: 'OMG', display:"OMG"}, { value:'PHD', display:'PHD'},
+  agencyList = [{ value: 'OMG', display:"OMG"}, 
+    { value:'PHD', display:'PHD'},
     { value:'OMD', display:'OMD'},
     { value:'OTHER', display:'OTHER'}];
   statusList = [{ value: 'New', display:"New"}, 

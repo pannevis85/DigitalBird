@@ -78,5 +78,18 @@ namespace API.Data
             }
             await context.SaveChangesAsync();
         }
+    
+        public static async Task SeedProcesses(DataContext context) 
+        {
+            if (await context.Processes.AnyAsync()) return;
+            var ProcessesData = await System.IO.File.ReadAllTextAsync("Data/ProcessSeedData.json");
+            var processes = JsonSerializer.Deserialize<List<Process>>(ProcessesData);
+            foreach(var process in processes) 
+            {
+                context.Processes.Add(process);
+            }
+            await context.SaveChangesAsync();
+        }
     }
 }
+    

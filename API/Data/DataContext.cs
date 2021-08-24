@@ -13,11 +13,7 @@ namespace API.Data
         public DbSet<Contact> Contacts { get; set; } 
         public DbSet<Vendor> Vendors { get; set; }        
         public DbSet<Service> Services { get; set; }
-        public DbSet<ServiceProcess> ServiceProcesses { get; set; }
-        //public DbSet<VendorService> VendorServices { get; set; }
-        //public DbSet<Process> Processes { get; set; }
-        
-        
+        public DbSet<Process> Processes { get; set; }
         
         //public DbSet<GdprRecord> GdprRecords { get; set; }
         

@@ -1,8 +1,15 @@
-<div *ngIf="partner">
-    <h5 class="title"> {{partner.name}} </h5>
-    <p><a routerLink='/partners/{{partner.id}}/edit' class="icon-edit"></a>Edit partner</p>    
-    <label>Group: {{partner.partner_group}}</label>
-    <label>Agency: {{partner.agency}}</label>
-    <label>Status: {{partner.status}}</label>
-    <label>Type: {{partner.type}}</label>
+<div *ngIf="partner" >
+    <div class="horizontal-container">
+        <h2 class="title"> {{partner.name}} </h2>
+        <p> <a routerLink='/partners/{{partner.id}}/edit' class="icon-edit"></a> Edit Partner</p>
+        
+   </div>
+
+    <mat-list>
+        <p>Group:   {{partner.partner_group}}</p>
+        <p>Agency:  {{partner.agency}}</p>
+        <p>Status:  {{partner.status}}</p>
+        <p>Type:    {{partner.type}}</p>
+    </mat-list>
+
 </div>

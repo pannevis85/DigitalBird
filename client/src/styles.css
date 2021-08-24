@@ -1,17 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
-label {
-    text-align:left;
-    clear: both;
-    float:left;
-    margin-right:10px;
-    min-width: 100px;
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+/*
+
+*/
+.form-control{
+    width: 350px;
+}
+.form-group {
+    width: 100%;
+    margin-top: 5px;
+    
+}
+.form-label {
+    width: 30%;
+}
+.mat-dialog-container {
+    background-color: whitesmoke;
+    color: black;
+    text-align: left;
+}
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.mat-form {
+    display:inline-block;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
 }
 
-.title {
-    margin-top: 10px;
-    font-size: 25px;
-    font-weight: bold;
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+.th-col {
+    padding-right: 20px;
+    background-color: whitesmoke;
+    color: black;
+    text-align: left;    
+    font-size: 14px;
+    border-top: 2px solid grey;
+    min-width: 70px;
 }
+.td-col {
+    margin-block-end: 5px;
+    background-color: whitesmoke;
+    color: black;
+    text-align: left;
+    border-top: 2px solid grey;
+    
+}
+
+.list-text {    
+    font-style: italic;
+    font-size: 12px;
+}
+
 
 .list {
     border: 1px solid darkblue;
@@ -24,64 +73,12 @@ label {
     text-align: left;
 }
 
-
-.margin-top {
-    margin-top: 20px;
-}
-.margin-bottom {
-    margin-bottom: 20px;
-}
-.margin-left {
-    margin-left: 10px;
-}
-
-.form-title {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.form-table {    
-    border-spacing: 0px;
-    margin: 0px;
-    width: 650px;
-    table-layout: auto;   
-    border: 1px transparent;
-    row-gap: 0px;
-    
-}
-.form-text {
-    font-size: 16px;
-    font-style: italic;
-    vertical-align: middle;
-    text-align: left;   
-}
-
-.list-text {    
-    font-size: 16px;
-    font-style: italic;
-}
-.form-input-text {
-    font-size: 16px;
-    font-style: italic;
-    vertical-align: middle;
-    text-align: left;   
-}
-
-.list-header {    
-    font-size: 16px;
-    font-weight: bold;
-    color: darkblue;    
-}
 .appear-on-hover {
     display: none;
 }
 .row:hover .appear-on-hover {
     display: inline-block;
 }
-
-
-
-
 
 .icon-container {
     margin: 5px;
@@ -94,12 +91,11 @@ img {
     background-repeat: no-repeat;
 }
 .icon, .icon-add, .icon-edit, .icon-go-to {
-    height: 30px;
-    width: 30px;  
-    margin: 5px;
-    object-fit: fill;
+    height: 25px;
+    width: 25px;  
+    margin: 2px;
+    display: inline-block;
     background-repeat: no-repeat;
-    display: inline;
     vertical-align: middle;
     
 }
@@ -121,3 +117,5 @@ img {
     height: 40px;
     width: 40px;    
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

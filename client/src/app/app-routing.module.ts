@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PartnerDetailComponent } from './partners/partner-detail/partner-detail.component';
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
 import { PartnerListComponent } from './partners/partner-list/partner-list.component';
+import { ProcessEditComponent } from './services/process-edit/process-edit.component';
 import { ServiceDetailComponent } from './services/service-detail/service-detail.component';
 import { ServiceEditComponent } from './services/service-edit/service-edit.component';
 import { ServiceListComponent } from './services/service-list/service-list.component';
@@ -37,9 +38,8 @@ const routes: Routes = [
       {path: 'services/:serviceid/edit', component: ServiceEditComponent},
       {path: 'services/:serviceid', component: ServiceDetailComponent},
       {path: 'services', component: ServiceListComponent},
-
-
-      {path: 'contacts', component: HomeComponent},
+      {path: 'process/create', component: ProcessEditComponent},
+      {path: 'process/:serviceid/edit', component: ProcessEditComponent},
       
       {path: 'gdpr', component: HomeComponent},
       {path: 'errors', component: TestErrorsComponent},

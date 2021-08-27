@@ -1,0 +1,62 @@
+
+<h2>Partners Service {{action}}</h2>
+<div mat-dialog-content>
+  <mat-form *ngIf="action != 'Delete'; else elseTemplate" class="mat-form">
+    
+    <div class="form-group">
+      <mat-label class="form-label">Vendor: </mat-label>
+      <mat-form-field>
+          <mat-select [(ngModel)]="local_data.vendorName"  class="form-input" [select]="local_data.vendorName" name="vendor" placeholder="select vendor">
+              <mat-option *ngFor="let item of vendorList" [value]="item.name">
+                  {{item.name}}  
+              </mat-option>
+          </mat-select>
+          
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label class="form-label">Service: </mat-label>
+      <mat-form-field>
+          <mat-select [(ngModel)]="local_data.serviceName"  class="form-input" [select]="local_data.serviceName" name="service" placeholder="select service">
+              <mat-option *ngFor="let item of serviceList" [value]="item.name">
+                  {{item.name}}  
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label class="form-label">Year: </mat-label>
+      <mat-form-field>
+          <mat-select [(ngModel)]="local_data.year"  class="form-input" [select]="local_data.year" name="year" placeholder="select year">
+              <mat-option *ngFor="let item of yearList" [value]="item">
+                  {{item}}  
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label class="form-label">Status: </mat-label>
+      <mat-form-field>
+          <mat-select [(ngModel)]="local_data.status"  class="form-input" [select]="local_data.status" name="year" placeholder="select status">
+              <mat-option *ngFor="let item of statusList" [value]="item">
+                  {{item}}  
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label class="form-label">Note: </mat-label>
+      <mat-form-field class="form-input">
+          <input matInput [(ngModel)]="local_data.note" name="note">
+      </mat-form-field>
+    </div>
+</mat-form>
+<ng-template #elseTemplate>
+This will permenantly delete this service. are you sure? <b>{{local_data.activity}}</b>?
+</ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-success" (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
+

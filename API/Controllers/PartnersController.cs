@@ -25,17 +25,20 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PartnerDto>>> GetPartners()
         {
-            var partners = await _context.Partners.AsQueryable().ToListAsync();
-            var orderedList = partners.OrderBy(p => p.Name);
-            return Ok(_mapper.Map<IEnumerable<PartnerDto>>(orderedList));
+            var list = await _context.Partners.AsQueryable()
+                                .OrderBy(p => p.Name)
+                                .ToListAsync();            
+            return Ok(_mapper.Map<IEnumerable<PartnerDto>>(list));
         }
         [HttpGet("search/{searchTerm}")]
         public async Task<ActionResult<IEnumerable<PartnerDto>>> SearchPartners(string searchTerm)
         {
-            var partners = await _context.Partners.AsQueryable().ToListAsync();
-            var searchList = partners.Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()) || x.Partner_group.ToLower().Contains(searchTerm.ToLower()));
-            var orderedList = searchList.OrderBy( x => x.Name);
-            return Ok(_mapper.Map<IEnumerable<PartnerDto>>(orderedList));
+            var list = await _context.Partners
+                                        .Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()) 
+                                        || x.Partner_group.ToLower().Contains(searchTerm.ToLower()))
+                                        .OrderBy( x => x.Name)
+                                        .ToListAsync();
+            return Ok(_mapper.Map<IEnumerable<PartnerDto>>(list));
             
         }
 
@@ -47,20 +50,20 @@ namespace API.Controllers
         }
         [HttpPut("{id}/edit")]
         public async Task<ActionResult> UpdatePartner(PartnerDto partnerDto) {
-            var partner = await _context.Partners.FirstOrDefaultAsync(p => p.Id == partnerDto.Id);
-            if (partner == null) return BadRequest("Partner doesnt exist");
-            partner.Name = partnerDto.Name;
-            partner.Status = partnerDto.Status;
-            partner.Partner_group = partnerDto.Partner_group;
-            partner.Type = partnerDto.Type;
-            partner.Address = partnerDto.Address;
-            partner.Email = partnerDto.Email;
-            partner.Telephone = partnerDto.Telephone;
-            partner.Agency = partnerDto.Agency;
-            partner.LastEdited = DateTime.Now;
+            var element = await _context.Partners.FirstOrDefaultAsync(p => p.Id == partnerDto.Id);
+            if (element == null) return BadRequest("Partner doesnt exist");
+            element.Name = partnerDto.Name;
+            element.Status = partnerDto.Status;
+            element.Partner_group = partnerDto.Partner_group;
+            element.Type = partnerDto.Type;
+            element.Address = partnerDto.Address;
+            element.Email = partnerDto.Email;
+            element.Telephone = partnerDto.Telephone;
+            element.Agency = partnerDto.Agency;
+            element.LastEdited = DateTime.Now;
             try 
             {
-                _context.Partners.Update(partner);
+                _context.Partners.Update(element);
                 await _context.SaveChangesAsync();
             }
             catch (Exception e) {
@@ -71,9 +74,9 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreatePartner(PartnerDto partnerDto) 
         {
-            var check = await _context.Partners.AnyAsync(p => p.Name == partnerDto.Name);
-            if (check) return BadRequest("Partner name already exists");
-            var partner = new Partner {
+            var exists = await _context.Partners.AnyAsync(p => p.Name == partnerDto.Name);
+            if (exists) return BadRequest("Partner name already exists");
+            var element = new Partner {
                 Name = partnerDto.Name,
                 Status = partnerDto.Status,
                 Partner_group = partnerDto.Partner_group,
@@ -84,7 +87,7 @@ namespace API.Controllers
                 Agency = partnerDto.Agency,
                 LastEdited = DateTime.Now                
             };
-            _context.Partners.Add(partner);
+            _context.Partners.Add(element);
             await _context.SaveChangesAsync();
             return NoContent();
         }

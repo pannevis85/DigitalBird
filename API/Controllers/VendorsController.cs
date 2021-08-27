@@ -25,17 +25,18 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VendorDto>>> GetVendors() 
         {
-            var vendors = await _context.Vendors.ToListAsync();
-            var vendorsToReturn = _mapper.Map<IEnumerable<VendorDto>>(vendors);
-            return Ok(vendorsToReturn);
+            var list = await _context.Vendors.ToListAsync();
+            var listMapped = _mapper.Map<IEnumerable<VendorDto>>(list);
+            return Ok(listMapped);
         }
         [HttpGet("search/{searchTerm}")]
         public async Task<ActionResult<IEnumerable<VendorDto>>> SearchVendors(string searchTerm)
         {
-            var vendors = await _context.Vendors.AsQueryable().ToListAsync();
-            var searchList = vendors.Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()));
-            var orderedList = searchList.OrderBy( x => x.Name);
-            return Ok(_mapper.Map<IEnumerable<VendorDto>>(orderedList));
+            var list = await _context.Vendors
+                            .Where(x => x.Name.ToLower().Contains(searchTerm.ToLower()))
+                            .OrderBy( x => x.Name)
+                            .ToListAsync();
+            return Ok(_mapper.Map<IEnumerable<VendorDto>>(list));
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<VendorDto>> GetPartner(int id)

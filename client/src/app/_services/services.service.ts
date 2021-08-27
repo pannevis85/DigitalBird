@@ -11,9 +11,10 @@ import { HelperService } from './helper.service';
 export class ServicesService {
   baseUrl = environment.apiUrl;
   services: Service[] = [];
-  
+  serviceList: string[] = [];
   constructor(private http:HttpClient, private helper:HelperService) { }
-
+  
+  
   getServices() {
     return this.http.get<Service[]>(this.baseUrl + 'services')
     //this pipe is just to create a url for status string to icons

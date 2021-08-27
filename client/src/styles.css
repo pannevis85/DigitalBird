@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
 /*
 
 */
@@ -8,11 +8,45 @@
 }
 .form-group {
     width: 100%;
-    margin-top: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-input {
+    width:100%;
+    background-color: lightgray;
+    color: black;
+    min-width: 400px;
+    min-height: 35px;
+    border: 2px;
+    border-style: outset;
+    
+    font-style: oblique;
+    padding: 0px;
+    display:inline-block;
+    align-items: center;
+}
+.form-textarea {
+    background-color: whitesmoke;
+    color: black;
+    
+    border: 2px;
+    border-style: outset;
+    margin-left: 10px;
+    font-style: oblique;
+    padding: 0px;
+    display:inline-block;
     
 }
+/* need this to make the select value visible */
+.mat-select-value {
+    color: black;
+}
 .form-label {
-    width: 30%;
+    display: inline-block;
+    clear: left;
+    width: 100px;
+    text-align: right;
 }
 .mat-dialog-container {
     background-color: whitesmoke;
@@ -28,8 +62,6 @@
 .mat-form {
     display:inline-block;
     flex-direction: column;
-    min-width: 150px;
-    max-width: 500px;
     width: 100%;
 }
 
@@ -45,32 +77,60 @@
     text-align: left;    
     font-size: 14px;
     border-top: 2px solid grey;
-    min-width: 70px;
+    min-width: 80px;
+}
+.col-long {
+    width: 250px;
 }
 .td-col {
-    margin-block-end: 5px;
-    background-color: whitesmoke;
+    margin-right: 20px;
     color: black;
     text-align: left;
     border-top: 2px solid grey;
+    word-wrap: normal;
+}
+.mat-col {
+    background-color: whitesmoke;
+}
+.mat-row {
+    background-color: whitesmoke;
+}
+.mat-row:hover {
+    background-color: lightblue;
     
 }
-
+.list-header {    
+    font-style:normal;
+    font-size: 14px;
+    color: darkblue;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+}
 .list-text {    
     font-style: italic;
     font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    
 }
-
-
-.list {
+.list-row {
     border: 1px solid darkblue;
     height: auto;
-    margin-top: 10px;
+    margin-top: 2px;
     width: 700px;
-    padding: 5px;
-    align-content: center;
-    justify-content: center;
+    padding: 2px;
+    align-content: left;
+    justify-content: left;
     text-align: left;
+}
+.list-gridbox {
+    margin-right: 25px;
+    width: 400px;
+}
+.list-gridbox-small {
+    margin-right: 25px;
+    width: 50px;
 }
 
 .appear-on-hover {
@@ -96,7 +156,7 @@ img {
     margin: 2px;
     display: inline-block;
     background-repeat: no-repeat;
-    vertical-align: middle;
+    vertical-align: top;
     
 }
 .icon-add {
@@ -104,6 +164,7 @@ img {
 }
 .icon-edit {
     content: url("./assets/images/icon-edit.png");
+    
 }
 .icon-search {
     background-image: url("./assets/images/icon-search.png");

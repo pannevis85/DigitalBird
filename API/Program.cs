@@ -31,10 +31,11 @@ namespace API
                 await context.Database.MigrateAsync();
                 await Seed.SeedUsers(context);
                 await Seed.SeedPartners(context);
-                await Seed.SeedContacts(context);
+                ///await Seed.SeedContacts(context);
                 await Seed.SeedVendors(context);
                 await Seed.SeedServices(context);
                 await Seed.SeedProcesses(context);
+                await Seed.SeedPartnerServices(context);
             } 
             catch (Exception e) 
             {

@@ -1,38 +1,38 @@
 
-<h2 mat-dialog-title>Edit process {{action}}</h2>
+<h2 mat-dialog-title>Process {{action}}</h2>
 <div mat-dialog-content>
   <mat-form *ngIf="action != 'Delete'; else elseTemplate" class="mat-form">
     
     <div class="form-group">
       <label class="form-label">Category: </label>
       <mat-form-field>
-        <input mat-input class="form-control" [(ngModel)]="local_data.category" name="category"> 
+        <input matInput class="form-control" [(ngModel)]="local_data.category" name="category" /> 
       </mat-form-field>
     </div>
     <div class="form-group">
       <label class="form-label">Activity: </label>
       <mat-form-field>
-        <input mat-input class="form-control" [(ngModel)]="local_data.activity" name="activity" > 
+        <input matInput class="form-control" [(ngModel)]="local_data.activity" name="activity" > 
       </mat-form-field>
     </div>
     <div class="form-group">
       <label class="form-label">Note: </label>
       <mat-form-field>
-        <textarea name="note" id="note" cols="*" rows="3" [(ngModel)]="local_data.note" class="form-control"></textarea>
+        <textarea matInput name="note" id="note" cols="*" rows="3" [(ngModel)]="local_data.note" class="form-control"></textarea>
       </mat-form-field>
     </div>
     <div class="form-group">
       <label class="form-label">GdprRequirement: </label>
       <mat-form-field>
-        <select name="gdprRequirement" style="width:100px" [(ngModel)]="local_data.gdprRequirement" class="form-control">
-          <option *ngFor="let value of gdprList" [value]="local_data.gdprRequirement"> {{value.display}}</option>
-      </select>    
+        <select matInput name="gdprRequirement" style="width:100px" [(ngModel)]="local_data.gdprRequirement" class="form-control">
+          <option  *ngFor="let value of gdprList" [value]="local_data.gdprRequirement"> {{value.display}}</option>
+        </select>    
       </mat-form-field>
     </div>
     <div class="form-group">
       <label class="form-label">Order: </label>
       <mat-form-field>
-        <input mat-input style="width: 100px;" class="form-control" [(ngModel)]="local_data.sortOrder" name="sortOrder"> 
+        <input matInput style="width: 100px;" class="form-control" [(ngModel)]="local_data.sortOrder" name="sortOrder"> 
       </mat-form-field>
     </div>
 </mat-form>

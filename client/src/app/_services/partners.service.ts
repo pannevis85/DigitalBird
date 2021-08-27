@@ -25,8 +25,8 @@ export class PartnersService {
     //this pipe is just to create a url for status string to icons
     //this is a list, the array needs to be mapped and within that each element
       .pipe(map(array => {
-        array.map(partner=> {
-          partner.statusUrl = this.helper.getStatusUrl(partner.status)
+        array.map(element=> {
+          element.statusUrl = this.helper.getStatusUrl(element.status)
         })
         this.partners = array;        
         return array;

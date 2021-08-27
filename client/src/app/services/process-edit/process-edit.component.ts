@@ -79,9 +79,10 @@ export class ProcessEditComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //check if result is empty
       if(result == undefined) return;
+      if (result.event == 'Cancel') return;
       //create object of process returned from dialog
       let processStep:Process = {
-        id: result.data.id,
+      id: result.data.id,
         name: result.data.name,
         status: result.data.status,
         serviceId: this.service.id,

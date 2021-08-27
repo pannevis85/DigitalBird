@@ -5,25 +5,23 @@
         type="search"  placeholder="search partners" class="search-bar" >
     <hr />
 
-    <mat-nav-list>
+    <mat-list>
         <mat-list-item *ngFor="let partner of partners$ | async">
             <a routerLink='/partners/{{partner.id}}' routerLinkActive='active' style="text-decoration: none">
-                <div class="list">
-                    <div class="row">
-                        <div class="col-9">
-                            <h5 class="list-header"> {{partner.name}} </h5>
-                            <p class="list-text">{{partner.partner_group}}  group</p>
-                        </div>
-                        <div class="col-2" >
-                            <img src="{{partner.statusUrl}}" alt="{{partner.status}}" title="{{partner.status}}">
-                            <p class="list-text">{{partner.status}} </p>
-                        </div>
-                        <div class="col-1 appear-on-hover">
-                            <img class="icon-go-to appear-on-hover">
-                        </div>
-                    </div>                    
-                </div>               
+                <div class="list-row horizontal-container">
+                    <div class="col-9">
+                        <p class="list-header"> {{partner.name}} </p>
+                        <p class="list-text">{{partner.partner_group}}  group</p>
+                    </div>
+                    <div class="col-2" >
+                        <img src="{{partner.statusUrl}}" alt="{{partner.status}}" title="{{partner.status}}">
+                        <p class="list-text">{{partner.status}} </p>
+                    </div>
+                    <div class="col-1 appear-on-hover">
+                        <img class="icon-go-to appear-on-hover">
+                    </div>
+                </div>                   
             </a>
         </mat-list-item>
-    </mat-nav-list>    
+    </mat-list>    
 </div>

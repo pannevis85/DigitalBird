@@ -1,7 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Partner } from 'src/app/_models/partner';
+import { PartnerService } from 'src/app/_models/partnerservice';
 import { PartnersService } from 'src/app/_services/partners.service';
+import { PartnerservicesService } from 'src/app/_services/partnerservices.service';
+import { ServicesService } from 'src/app/_services/services.service';
+import { VendorsService } from 'src/app/_services/vendors.service';
+import { PartnerserviceDialogComponent } from '../partnerservices/partnerservice-dialog/partnerservice-dialog.component';
 
 @Component({
   selector: 'app-partner-detail',
@@ -11,8 +19,30 @@ import { PartnersService } from 'src/app/_services/partners.service';
 export class PartnerDetailComponent implements OnInit {
   partnerId: number;
   partner: Partner;
+  services: PartnerService[];
+
+  dataSource: any;
+  displayedColumns = ['vendorName', 'serviceName', 'year', 'status', 'gdprStatus', 'action'];
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+  mySubscription: any;
+
   constructor(private partnerService: PartnersService
-    , private activatedRoute: ActivatedRoute) {  }
+    , private partnerserviceService:PartnerservicesService
+    , private serviceService:ServicesService
+    , private vendorService:VendorsService
+    , private activatedRoute: ActivatedRoute    
+    , private router: Router
+    , private toastr: ToastrService
+    , private dialog: MatDialog
+    ) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+         // Trick the Router into believing it's last link wasn't previously loaded
+         this.router.navigated = false;
+      }
+    });
+    }
 ngOnInit(): void {
     this.loadPartner();
   }
@@ -21,5 +51,64 @@ ngOnInit(): void {
     this.partnerService.getPartner(this.partnerId).subscribe(response => {
       this.partner = response;
     })
+    this.loadServices();
+  }
+  loadServices() {
+    this.partnerserviceService.getPartnerServices(this.partnerId).subscribe( response => {
+      this.dataSource = response;
+    })
+  }
+  openDialog(action,element) {
+    element.action = action;
+    let dimensions = { width: "600px", height: "600px"};
+
+    const dialogRef = this.dialog.open(PartnerserviceDialogComponent, {
+      width: dimensions.width,
+      height: dimensions.height,
+      data:element
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //check if result is empty
+      console.log(result);
+      
+      if (result.event == 'Cancel') return;
+      //create object of process returned from dialog
+      
+      let service:PartnerService = {
+        id: result.data.id,
+        status: result.data.status,
+        partnerId: this.partner.id,
+        partnerName: this.partner.name,
+        vendorId: 0,
+        vendorName: result.data.vendorName,
+        serviceId: 0,
+        serviceName: result.data.serviceName,
+        year: result.data.year,
+        note: result.data.note
+      };
+
+
+      if(result.event == 'Add'){
+        this.partnerserviceService.createPartnerService(service).subscribe(response => {
+          this.toastr.success("Partner service created")
+          this.router.navigate([this.router.url]);
+        });
+      }else if(result.event == 'Update'){        
+        this.partnerserviceService.updatePartnerService(service).subscribe(response => {
+          this.toastr.success("Partner service edited")
+          this.router.navigate([this.router.url]);
+        });
+      }else if(result.event == 'Delete'){
+        this.partnerserviceService.deletePartnerService(service.id).subscribe(response => {
+          this.toastr.success("Partner service deleted")
+          this.router.navigate([this.router.url]);
+        });
+      }
+    
+    });
+  }
+  openGdprList(row) {
+    console.log("this would navigate to gdpr list of " + row.serviceName);
   }
 }

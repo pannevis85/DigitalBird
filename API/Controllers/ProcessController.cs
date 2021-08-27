@@ -26,17 +26,21 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProcessDto>>> GetProcess()
         {
-            var processes = await _context.Processes.AsQueryable().ToListAsync();
-            var orderedList = processes.OrderBy(p => p.Name);
-            return Ok(_mapper.Map<IEnumerable<ProcessDto>>(orderedList));
+            var list = await _context.Processes
+                            .OrderBy(p => p.Name)
+                            .ToListAsync();
+            return Ok(_mapper.Map<IEnumerable<ProcessDto>>(list));
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ProcessDto>>> GetProcess(int id)
+        [HttpGet("{serviceid}")]
+        public async Task<ActionResult<IEnumerable<ProcessDto>>> GetProcess(int serviceId)
         {
-            var process =  await _context.Processes.AsQueryable().ToListAsync();
-            var orderedProcess = process.Where(p => p.ServiceId == id).OrderBy(p => p.SortOrder);
-            return Ok(_mapper.Map<IEnumerable<ProcessDto>>(orderedProcess));
+            var list =  await _context.Processes
+                            .Where(p => p.ServiceId == serviceId)
+                            .OrderBy(p => p.SortOrder)
+                            .ToListAsync();
+            if (!list.Any()) return BadRequest("Process list is empty");
+            return Ok(_mapper.Map<IEnumerable<ProcessDto>>(list));
         }
         [HttpPut("{serviceid}/edit")]
         public async Task<ActionResult> UpdateProcess(ProcessDto processDto) 
@@ -88,11 +92,11 @@ namespace API.Controllers
         [HttpPost("delete/{processid}")]
         public async Task<ActionResult> DeleteProcess(int processId) 
         {
-            var process = await _context.Processes.FirstOrDefaultAsync(p => p.Id == processId);
-            if (process == null) return BadRequest("Process doesnt exist!" + processId + "!");
+            var element = await _context.Processes.FirstOrDefaultAsync(p => p.Id == processId);
+            if (element == null) return BadRequest("Process doesnt exist!" + processId + "!");
             try 
             {
-                _context.Processes.Remove(process);
+                _context.Processes.Remove(element);
                 await _context.SaveChangesAsync();
                 return NoContent();
             }

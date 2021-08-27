@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule, } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,14 +35,12 @@ import { ServiceEditComponent } from './services/service-edit/service-edit.compo
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { ProcessEditComponent } from './services/process-edit/process-edit.component';
-
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatInputModule } from '@angular/material/Input';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
 import { ProcessDialogBoxComponent } from './services/process-dialog-box/process-dialog-box.component';
+import { PartnerserviceDialogComponent } from './partners/partnerservices/partnerservice-dialog/partnerservice-dialog.component';
+import { GdprListComponent } from './gdprs/gdpr-list/gdpr-list.component';
+
+
+
 
 
 
@@ -60,6 +65,8 @@ import { ProcessDialogBoxComponent } from './services/process-dialog-box/process
     ServiceEditComponent,
     ProcessEditComponent,
     ProcessDialogBoxComponent,
+    PartnerserviceDialogComponent,
+    GdprListComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,12 +77,14 @@ import { ProcessDialogBoxComponent } from './services/process-dialog-box/process
     ReactiveFormsModule,
     SharedModule,
     NgxSpinnerModule,
+    
     MatTableModule,
     MatSortModule,
     MatInputModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

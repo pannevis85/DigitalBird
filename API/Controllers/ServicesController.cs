@@ -26,13 +26,13 @@ namespace API.Controllers
         [HttpGet] 
         public async Task<ActionResult<IEnumerable<ServiceDto>>> GetServices() 
         {
-            var services = await _context.Services.AsQueryable().ToListAsync();
-            var orderedList = services.OrderBy(p => p.Name);
-            var servicesToReturn = _mapper.Map<IEnumerable<ServiceDto>>(orderedList);
-            return Ok(servicesToReturn);
+            var list = await _context.Services
+                            .OrderBy(p => p.Name)
+                            .ToListAsync();
+            var mappedList = _mapper.Map<IEnumerable<ServiceDto>>(list);
+            return Ok(mappedList);
         }
 
-        
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceDto>> GetService(int id)
         {

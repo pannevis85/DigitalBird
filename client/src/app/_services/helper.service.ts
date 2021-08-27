@@ -8,9 +8,13 @@ export class HelperService {
   constructor() { }
 
   getStatusUrl(status: string) {
-    if (!status) return;
+    if (!status) return "./assets/images/icon-warning.png";
+    if (status.length==0) return "./assets/images/icon-warning.png";
     let statusUrl: string ="./assets/images/";
     switch (status.toLowerCase()) {
+      case "warning":
+        statusUrl = "icon-warning.png"
+        break;
       case "inactive":
         statusUrl = "icon-circle-gray.png"
         break;
@@ -36,7 +40,7 @@ export class HelperService {
         statusUrl = "icon-circle-red.png"
         break;
       default:
-        statusUrl = "icon-circle-yellow.png"
+        statusUrl = "icon-warning.png"
         break;
     }
     

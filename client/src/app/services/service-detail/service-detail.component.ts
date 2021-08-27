@@ -14,7 +14,6 @@ import { ServicesService } from 'src/app/_services/services.service';
 export class ServiceDetailComponent implements OnInit {
   serviceId: number;
   service: Service;
-  process: Process[];
 
   dataSource: any;
   displayedColumns = ['sortOrder', 'category', 'activity', 'note', 'gdprRequirement'];
@@ -37,7 +36,6 @@ ngOnInit(): void {
   }
   loadProcess() {
     this.processService.getProcess(this.serviceId).subscribe(response => {
-      this.process = response;
       this.dataSource = response;  
     })    
   }

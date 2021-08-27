@@ -7,17 +7,17 @@
     <label>Status:      {{service.status}}</label>
     <time>Created:     {{service.created}}</time>   
 </div>
-<div class="horizontal-container" style="margin-top: 20px;">
+<div class="row" class="horizontal-container" style="margin-top: 30px;">
   <h2 class="title">Process </h2>
   <p><a routerLink='/process/{{serviceId}}/edit' class="icon-edit"></a>Edit process</p>
 </div>
-<div *ngIf="process" >
+<div *ngIf="dataSource" >
     
-    <div *ngIf="process.length == 0">
+    <div *ngIf="dataSource.length == 0">
         <p>Process is empty</p>
     </div>
     
-    <div *ngIf="!process.length ==0" class="mat-container mat-elevation-z8">
+    <div *ngIf="!dataSource.length ==0" class="mat-container mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-table">
             <ng-container matColumnDef="sortOrder">
               <th mat-header-cell *matHeaderCellDef class="th-col"> Order </th>

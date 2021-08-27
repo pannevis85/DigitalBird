@@ -19,9 +19,9 @@ export class VendorsService {
     //this pipe is just to create a url for status string to icons
     //this is a list, the array needs to be mapped and within that each element
     .pipe(map(array => {
-      array.map(vendor=> {
-        vendor.statusUrl = this.helper.getStatusUrl(vendor.status)
-        return vendor;
+      array.map(element=> {
+        element.statusUrl = this.helper.getStatusUrl(element.status)
+        return element;
       })
       this.vendors = array
       return array;
@@ -51,5 +51,4 @@ export class VendorsService {
   createVendor(vendor:Vendor) {
     return this.http.post(this.baseUrl + "vendors/create", vendor);
   }
-
 }

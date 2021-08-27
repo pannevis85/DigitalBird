@@ -90,6 +90,19 @@ namespace API.Data
             }
             await context.SaveChangesAsync();
         }
+        
+
+        public static async Task SeedPartnerServices(DataContext context) 
+        {
+            if (await context.PartnerServices.AnyAsync()) return;
+            var serviceData = await System.IO.File.ReadAllTextAsync("Data/PartnerServiceData.json");
+            var services = JsonSerializer.Deserialize<List<PartnerService>>(serviceData);
+            foreach(var element in services) 
+            {
+                context.PartnerServices.Add(element);
+            }
+            await context.SaveChangesAsync();
+        }
     }
 }
     

@@ -8,7 +8,7 @@ namespace API.Entities
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string Status { get; set; } = "active";
+        public string Status { get; set; }
         public Partner Partner { get; set; }
         public int? PartnerId { get; set; }      
         public string PartnerName { get; set; } 

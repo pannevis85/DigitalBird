@@ -1,13 +1,27 @@
-<div *ngIf="service" class="row">
+<div *ngIf="service">
   <div class="horizontal-container">
     <h2 class="title"> {{service.name}} </h2>
     <p><a routerLink='/services/{{service.id}}/edit' class="icon-edit"></a>Edit service</p>    
-  </div>
-    <label>Description: {{service.description}}</label>
-    <label>Status:      {{service.status}}</label>
-    <time>Created:     {{service.created}}</time>   
+    </div>
+  <table class="form-table">
+    <tbody>
+      <tr>
+        <td><label class="form-label">Description: </label></td>
+        <td><label class="form-field">{{service.description}} </label></td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Status: </label></td>
+        <td><label class="form-field">{{service.status}} </label></td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Created: </label></td>
+        <td><label class="form-field">{{service.created}} </label></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<div class="row" class="horizontal-container" style="margin-top: 30px;">
+
+<div class="horizontal-container" style="margin-top: 30px;">
   <h2 class="title">Process </h2>
   <p><a routerLink='/process/{{serviceId}}/edit' class="icon-edit"></a>Edit process</p>
 </div>

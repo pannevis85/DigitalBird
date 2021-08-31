@@ -15,10 +15,10 @@ namespace API.Data
         {
             if (await context.AppUsers.AnyAsync()) return;
 
-            var userData = await System.IO.File.ReadAllTextAsync("Data/UserSeedData.json");
-            var users = JsonSerializer.Deserialize<List<AppUser>>(userData);
-            if (users == null) return;
-            foreach (var user in users)
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/UserSeedData.json");
+            var list = JsonSerializer.Deserialize<List<AppUser>>(jsonData);
+            if (list == null) return;
+            foreach (var user in list)
             {
                 using var hmac = new HMACSHA512();
 
@@ -34,9 +34,9 @@ namespace API.Data
         public static async Task SeedPartners(DataContext context) 
         {
             if (await context.Partners.AnyAsync()) return;
-            var partnerData = await System.IO.File.ReadAllTextAsync("Data/PartnerSeedData.json");
-            var partners = JsonSerializer.Deserialize<List<Partner>>(partnerData);
-            foreach(var partner in partners) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/PartnerSeedData.json");
+            var list = JsonSerializer.Deserialize<List<Partner>>(jsonData);
+            foreach(var partner in list) 
             {
                 context.Partners.Add(partner);
             }
@@ -45,9 +45,9 @@ namespace API.Data
         public static async Task SeedContacts(DataContext context) 
         {
             if (await context.Contacts.AnyAsync()) return;
-            var contactData = await System.IO.File.ReadAllTextAsync("Data/ContactSeedData.json");
-            var contacts = JsonSerializer.Deserialize<List<Contact>>(contactData);
-            foreach(var contact in contacts) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/ContactSeedData.json");
+            var list = JsonSerializer.Deserialize<List<Contact>>(jsonData);
+            foreach(var contact in list) 
             {
                 context.Contacts.Add(contact);
             }
@@ -57,9 +57,9 @@ namespace API.Data
         public static async Task SeedVendors(DataContext context) 
         {
             if (await context.Vendors.AnyAsync()) return;
-            var vendorData = await System.IO.File.ReadAllTextAsync("Data/VendorSeedData.json");
-            var vendors = JsonSerializer.Deserialize<List<Vendor>>(vendorData);
-            foreach(var vendor in vendors) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/VendorSeedData.json");
+            var list = JsonSerializer.Deserialize<List<Vendor>>(jsonData);
+            foreach(var vendor in list) 
             {
                 context.Vendors.Add(vendor);
             }
@@ -70,9 +70,9 @@ namespace API.Data
         public static async Task SeedServices(DataContext context) 
         {
             if (await context.Services.AnyAsync()) return;
-            var serviceData = await System.IO.File.ReadAllTextAsync("Data/ServiceSeedData.json");
-            var services = JsonSerializer.Deserialize<List<Service>>(serviceData);
-            foreach(var service in services) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/ServiceSeedData.json");
+            var list = JsonSerializer.Deserialize<List<Service>>(jsonData);
+            foreach(var service in list) 
             {
                 context.Services.Add(service);
             }
@@ -82,9 +82,9 @@ namespace API.Data
         public static async Task SeedProcesses(DataContext context) 
         {
             if (await context.Processes.AnyAsync()) return;
-            var ProcessesData = await System.IO.File.ReadAllTextAsync("Data/ProcessSeedData.json");
-            var processes = JsonSerializer.Deserialize<List<Process>>(ProcessesData);
-            foreach(var process in processes) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/ProcessSeedData.json");
+            var list = JsonSerializer.Deserialize<List<Process>>(jsonData);
+            foreach(var process in list) 
             {
                 context.Processes.Add(process);
             }
@@ -95,11 +95,22 @@ namespace API.Data
         public static async Task SeedPartnerServices(DataContext context) 
         {
             if (await context.PartnerServices.AnyAsync()) return;
-            var serviceData = await System.IO.File.ReadAllTextAsync("Data/PartnerServiceData.json");
-            var services = JsonSerializer.Deserialize<List<PartnerService>>(serviceData);
-            foreach(var element in services) 
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/PartnerServiceSeedData.json");
+            var list = JsonSerializer.Deserialize<List<PartnerService>>(jsonData);
+            foreach(var element in list) 
             {
                 context.PartnerServices.Add(element);
+            }
+            await context.SaveChangesAsync();
+        }
+                public static async Task SeedGdpr(DataContext context) 
+        {
+            if (await context.GdprRecords.AnyAsync()) return;
+            var jsonData = await System.IO.File.ReadAllTextAsync("Data/GdprSeedData.json");
+            var list = JsonSerializer.Deserialize<List<GdprRecord>>(jsonData);
+            foreach(var element in list) 
+            {
+                context.GdprRecords.Add(element);
             }
             await context.SaveChangesAsync();
         }

@@ -12,8 +12,6 @@ export class ProcessDialogBoxComponent {
   
   action:string;
   local_data:any;
-  gdprList = [{ value: true, display:"true"}, 
-    { value:false, display:'false'}];
   constructor(
     public dialogRef: MatDialogRef<ProcessDialogBoxComponent>,
     //@Optional() is used to prevent error if no data is passed
@@ -25,6 +23,7 @@ export class ProcessDialogBoxComponent {
 
   doAction(){    
     this.dialogRef.close({event:this.action,data:this.local_data});
+    
   }
 
   closeDialog(){

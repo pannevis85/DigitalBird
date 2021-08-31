@@ -19,6 +19,8 @@ namespace API.Helpers
             CreateMap<ProcessDto, Process>();
             CreateMap<PartnerService, PartnerServiceDto>();
             CreateMap<PartnerServiceDto, PartnerService>();
+            CreateMap<GdprRecordDto, GdprRecord>();
+            CreateMap<GdprRecord, GdprRecordDto>();
 
         }
     }

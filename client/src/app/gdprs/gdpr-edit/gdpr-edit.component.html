@@ -1,0 +1,124 @@
+<div *ngIf="gdprRecord">
+    <div class="d-flex align-items-start mb-3" style="height: 200px;">
+        
+        <div class="section-container">
+            <h2 class="title">{{gdprRecord.partnerName}}</h2>
+            <table class="form-table">
+                <tbody>
+                    <tr>
+                        <td><label class="form-label">Email: </label></td>
+                        <td><label class="form-field">{{gdprRecord.partnerEmail}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Address: </label></td>
+                        <td><label class="form-field">{{gdprRecord.partnerAddress}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Agency: </label></td>
+                        <td><label class="form-field">{{gdprRecord.partnerAgency}} </label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section-container">
+            <h2 class="title">{{gdprRecord.vendorName}}</h2>
+            <table class="form-table">
+                <tbody>
+                    <tr>
+                        <td><label class="form-label">Service: </label></td>
+                        <td><label class="form-field">{{gdprRecord.serviceName}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Year: </label></td>
+                        <td><label class="form-field">{{gdprRecord.gdprRecordYear}} </label></td>
+                    </tr>
+                    <tr>
+                        
+                </tbody>
+            </table>
+        </div>
+        <div class="section-container">
+            <h2 class="title">Process of {{gdprRecord.serviceName}}</h2>
+            <table class="form-table">
+                <tbody>
+                    <tr>
+                        <td><label class="form-label">Category: </label></td>
+                        <td><label class="form-field">{{gdprRecord.processCategory}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Activity: </label></td>
+                        <td><label class="form-field">{{gdprRecord.processActivity}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Note: </label></td>
+                        <td><label class="form-field">{{gdprRecord.processNote}} </label></td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Gdpr: </label></td>
+                        <td><label class="form-field">{{gdprRecord.processGdprRequirement}} </label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div>
+        <h2>Gdpr Record</h2>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateGdpr()" style="margin-top: 20px;">
+            <table class="form-table">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col style="width: 400px;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><label class="form-label">Gdpr Country: </label></td>
+                        <td><input mat-input class="form-control" [(ngModel)]="gdprRecord.gdprCountry" name="country" cols="*" rows="1" > </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Gdpr Law: </label></td>
+                        <td><input mat-input class="form-control" [(ngModel)]="gdprRecord.gdprLaw" name="law" cols="*" rows="1" > </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Note: </label></td>
+                        <td><textarea mat-input class="form-control" [(ngModel)]="gdprRecord.gdprNote" name="note" cols="3" rows="3" style="height: 75px;"></textarea> </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Contract Location: </label></td>
+                        <td><input mat-input class="form-control" [(ngModel)]="gdprRecord.contractLocation" name="contractLocation" cols="*" rows="1" > </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">Contract Status: </label></td>
+                        <td>
+                            <select name="contractStatus" style="width:250px" [(ngModel)]="gdprRecord.contractStatus" class="form-control">
+                                <option *ngFor="let element of contractStatusList" [value]="element.value"> {{element.value}}</option>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="form-label">This Record Status: </label></td>
+                        <td>
+                            <select name="status" style="width:250px" [(ngModel)]="gdprRecord.status" class="form-control">
+                                <option *ngFor="let element of statusList" [value]="element.value"> {{element.value}}</option>
+                            </select> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="form-group">
+                
+                          
+            </div>
+            <div class="margin-top alert-warning"  *ngIf="editForm.dirty">
+                <p class="form-text" style="margin-bottom: 10px;">You have made changes, any unsaved changes will be lost</p>
+                <button form="editForm" type="submit" class="btn btn-success">Save Changes</button>
+                <button form="n.a" (click)="reloadRoute()" class="btn btn-warning">Cancel Changes</button>
+            </div>
+    
+        </form>
+        
+    </div>
+    
+
+</div>

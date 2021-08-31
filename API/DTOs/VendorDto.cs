@@ -1,5 +1,4 @@
 using System;
-using API.Entities;
 
 namespace API.DTOs
 {
@@ -14,7 +13,6 @@ namespace API.DTOs
         public string Email { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastEdited { get; set; }
-        public AppUser LastEditor { get; set; }
         public int? LastEditorId {get;set;}
     }
 }

@@ -12,6 +12,9 @@ export class HelperService {
     if (status.length==0) return "./assets/images/icon-warning.png";
     let statusUrl: string ="./assets/images/";
     switch (status.toLowerCase()) {
+      case "in process":
+        statusUrl = "icon-circle-yellow.png"
+        break;
       case "warning":
         statusUrl = "icon-warning.png"
         break;

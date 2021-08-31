@@ -4,12 +4,34 @@
         <h2 class="title"> {{partner.name}} </h2>
         <p> <a routerLink='/partners/{{partner.id}}/edit' class="icon-edit"></a> Edit Partner</p>
     </div>
-    <p>Group:       {{partner.partner_group}}</p>
-    <p>Agency:      {{partner.agency}}</p>
-    <p>Status:      {{partner.status}}</p>
-    <p>Type:        {{partner.type}}</p>
-    <p>Email:       {{partner.email}}</p>
-    <p>Telephone:   {{partner.type}}</p>
+    <table class="form-table">
+        <tbody>
+            <tr>
+                <td><label class="form-label">Group: </label></td>
+                <td><label class="form-field">{{partner.partner_group}} </label></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">Agency: </label></td>
+                <td><label class="form-field">{{partner.agency}} </label></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">Status: </label></td>
+                <td><label class="form-field">{{partner.status}} </label></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">Type: </label></td>
+                <td><label class="form-field">{{partner.type}} </label></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">Email: </label></td>
+                <td><label class="form-field">{{partner.email}} </label></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">Telephone: </label></td>
+                <td><label class="form-field">{{partner.telephone}} </label></td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 <div style="margin-top: 20px;">
@@ -17,7 +39,6 @@
         <h2 class="title">Partner services </h2>
     </div>
     <button (click)="openDialog('Add',{})" class="btn btn-info">Add Service</button>
-    <p>Click on row to go to the the Gdpr list</p>
     <div *ngIf="dataSource">
         <div *ngIf="dataSource.length == 0">
             <p>Partner doesnt have any services registered</p>
@@ -44,18 +65,12 @@
                         <small>{{element.status}} </small>                        
                     </td>
                 </ng-container>
-                <ng-container matColumnDef="gdprStatus">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> GdprStatus </th>
-                    <td mat-cell *matCellDef="let element" class="td-col"> 
-                        <img class="icon" src="{{element.gdprStatusUrl}}" alt="">
-                        <br>
-                        <small>{{element.gdprStatus}} </small>
-                    </td>
-                </ng-container>
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef  class="th-col"  style="color: blue;"> Action </th>
-                    <td mat-cell *matCellDef="let element" class="td-col action-link " style="color: blue;"> 
-                        <button (click)="openGdprList(element)" title="Open"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button> | 
+                    <td mat-cell *matCellDef="let element" class="td-col action-link " style="color: blue;">
+                        <a routerLink='/gdpr/{{partner.id}}/{{element.vendorId}}/{{element.serviceId}}/{{element.year}}' routerLinkActive='active' style="text-decoration: none">
+                            <button title="Open"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button> | 
+                        </a>                        
                         <button (click)="openDialog('Update',element)" title="Edit"><img src="./assets/images/icon-edit.png" alt="Edit" class="icon"></button> | 
                         <button (click)="openDialog('Delete',element)" title="Delete"><img src="./assets/images/icon-bin.png" alt="Delete" class="icon"></button>  
                     </td>

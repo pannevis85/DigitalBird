@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Partner } from 'src/app/_models/partner';
 import { PartnersService } from 'src/app/_services/partners.service';
@@ -9,17 +10,21 @@ import { PartnersService } from 'src/app/_services/partners.service';
   styleUrls: ['./partner-list.component.css']
 })
 export class PartnerListComponent implements OnInit {
-  partners$: Observable<Partner[]>;
+  
   searchTerm: string = '';
   filterSelection: string = '';
+
+  dataSource: any;
+  displayedColumns = ['name', 'group', 'agency', 'status', 'action'];
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
 
   constructor(private partnerService: PartnersService) {  }
 
   ngOnInit(): void {
-    this.partners$ = this.partnerService.getPartners();
+    this.dataSource = this.partnerService.getPartners();
     
   }
   searchPartners() {
-    this.partners$ = this.partnerService.searchPartners(this.searchTerm);
+    this.dataSource = this.partnerService.searchPartners(this.searchTerm);
   }  
 }

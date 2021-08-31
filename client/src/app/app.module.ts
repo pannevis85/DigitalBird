@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { ProcessEditComponent } from './services/process-edit/process-edit.compo
 import { ProcessDialogBoxComponent } from './services/process-dialog-box/process-dialog-box.component';
 import { PartnerserviceDialogComponent } from './partners/partnerservices/partnerservice-dialog/partnerservice-dialog.component';
 import { GdprListComponent } from './gdprs/gdpr-list/gdpr-list.component';
+import { GdprEditComponent } from './gdprs/gdpr-edit/gdpr-edit.component';
 
 
 
@@ -67,6 +69,7 @@ import { GdprListComponent } from './gdprs/gdpr-list/gdpr-list.component';
     ProcessDialogBoxComponent,
     PartnerserviceDialogComponent,
     GdprListComponent,
+    GdprEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ import { GdprListComponent } from './gdprs/gdpr-list/gdpr-list.component';
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

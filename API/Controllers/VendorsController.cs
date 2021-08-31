@@ -47,8 +47,8 @@ namespace API.Controllers
         [HttpPut("{id}/edit")]
         public async Task<ActionResult> UpdateVendor(VendorDto vendorDto) {
             var vendor = await _context.Vendors.FirstOrDefaultAsync(p => p.Id == vendorDto.Id);
-            if (vendor != null) return BadRequest("Vendor doesnt exist");
-            if (vendor.Name == vendorDto.Name) return BadRequest("Vendor name already exists");
+            if (vendor == null) return BadRequest("Vendor doesnt exist");
+            //if (vendor.Name == vendorDto.Name) return BadRequest("Vendor name already exists");
             vendor.Name = vendorDto.Name;
             vendor.Status = vendorDto.Status;
             vendor.VendorGroup = vendorDto.VendorGroup;

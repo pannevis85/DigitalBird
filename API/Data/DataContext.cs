@@ -15,8 +15,7 @@ namespace API.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<Process> Processes { get; set; }
         public DbSet<PartnerService> PartnerServices {get;set;}
-        
-        //public DbSet<GdprRecord> GdprRecords { get; set; }
+        public DbSet<GdprRecord> GdprRecords { get; set; }
         
     }
 }

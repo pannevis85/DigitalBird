@@ -15,12 +15,13 @@ export class PartnerEditComponent implements OnInit {
   partnerId: number;
   partner: Partner;
   isNewPartner: boolean;
-  partnerForm: FormGroup;
-  agencyList = [{ value: 'OMG', display:"OMG"}, 
+  agencyList = [
+    { value: 'OMG', display:"OMG"}, 
     { value:'PHD', display:'PHD'},
     { value:'OMD', display:'OMD'},
     { value:'OTHER', display:'OTHER'}];
-  statusList = [{ value: 'New', display:"New"}, 
+  statusList = [
+    { value: 'New', display:"New"}, 
     { value:'Active', display:'Active'},
     { value:'Inactive', display:'Inactive'},
     { value:'in Process', display:'In process'},

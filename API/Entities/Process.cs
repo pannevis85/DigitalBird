@@ -6,7 +6,7 @@ namespace API.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Status { get; set; } = "active";
+        public string Status { get; set; }
         public Service Service { get; set; }
         public int? ServiceId { get; set; }
         public string ServiceName { get; set; }

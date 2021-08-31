@@ -82,7 +82,7 @@ export class ProcessEditComponent implements OnInit {
       if (result.event == 'Cancel') return;
       //create object of process returned from dialog
       let processStep:Process = {
-      id: result.data.id,
+        id: result.data.id,
         name: result.data.name,
         status: result.data.status,
         serviceId: this.service.id,
@@ -93,18 +93,21 @@ export class ProcessEditComponent implements OnInit {
         gdprRequirement: result.data.gdprRequirement,
         sortOrder: result.data.sortOrder
       };
-
+      console.log(processStep);
       if(result.event == 'Add'){
-        this.processService.updateProcess(processStep).subscribe(response => {
+        this.processService.createProcess(processStep).subscribe(response => {
           this.toastr.success("Process created")
+          this.router.navigate([this.router.url]);
         })
       }else if(result.event == 'Update'){        
-        this.processService.createProcess(processStep).subscribe(response => {
+        this.processService.updateProcess(processStep).subscribe(response => {
           this.toastr.success("Process updated")
+          this.router.navigate([this.router.url]);
         })
       }else if(result.event == 'Delete'){
         this.processService.deleteProcess(processStep.id).subscribe(response => {
           this.toastr.success("Process deleted")
+          this.router.navigate([this.router.url]);
         })
       }
       this.router.navigate([this.router.url]);

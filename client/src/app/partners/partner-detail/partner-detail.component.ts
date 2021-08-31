@@ -7,8 +7,6 @@ import { Partner } from 'src/app/_models/partner';
 import { PartnerService } from 'src/app/_models/partnerservice';
 import { PartnersService } from 'src/app/_services/partners.service';
 import { PartnerservicesService } from 'src/app/_services/partnerservices.service';
-import { ServicesService } from 'src/app/_services/services.service';
-import { VendorsService } from 'src/app/_services/vendors.service';
 import { PartnerserviceDialogComponent } from '../partnerservices/partnerservice-dialog/partnerservice-dialog.component';
 
 @Component({
@@ -22,14 +20,12 @@ export class PartnerDetailComponent implements OnInit {
   services: PartnerService[];
 
   dataSource: any;
-  displayedColumns = ['vendorName', 'serviceName', 'year', 'status', 'gdprStatus', 'action'];
+  displayedColumns = ['vendorName', 'serviceName', 'year', 'status', 'action'];
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   mySubscription: any;
 
   constructor(private partnerService: PartnersService
     , private partnerserviceService:PartnerservicesService
-    , private serviceService:ServicesService
-    , private vendorService:VendorsService
     , private activatedRoute: ActivatedRoute    
     , private router: Router
     , private toastr: ToastrService
@@ -47,7 +43,7 @@ ngOnInit(): void {
     this.loadPartner();
   }
   loadPartner() {
-    this.partnerId = Number(this.activatedRoute.snapshot.paramMap.get('partnerid'))
+    this.partnerId = Number(this.activatedRoute.snapshot.paramMap.get('partnerid'));
     this.partnerService.getPartner(this.partnerId).subscribe(response => {
       this.partner = response;
     })
@@ -60,7 +56,7 @@ ngOnInit(): void {
   }
   openDialog(action,element) {
     element.action = action;
-    let dimensions = { width: "600px", height: "600px"};
+    let dimensions = { width: "600px", height: "400px"};
 
     const dialogRef = this.dialog.open(PartnerserviceDialogComponent, {
       width: dimensions.width,
@@ -92,17 +88,17 @@ ngOnInit(): void {
       if(result.event == 'Add'){
         this.partnerserviceService.createPartnerService(service).subscribe(response => {
           this.toastr.success("Partner service created")
-          this.router.navigate([this.router.url]);
+          this.loadPartner();
         });
       }else if(result.event == 'Update'){        
         this.partnerserviceService.updatePartnerService(service).subscribe(response => {
           this.toastr.success("Partner service edited")
-          this.router.navigate([this.router.url]);
+          this.loadPartner();
         });
       }else if(result.event == 'Delete'){
         this.partnerserviceService.deletePartnerService(service.id).subscribe(response => {
           this.toastr.success("Partner service deleted")
-          this.router.navigate([this.router.url]);
+          this.loadPartner();
         });
       }
     

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Vendor } from 'src/app/_models/vendor';
 import { VendorsService } from 'src/app/_services/vendors.service';
@@ -13,13 +14,17 @@ export class VendorListComponent implements OnInit {
   searchTerm: string = '';
   filterSelection: string = '';
 
+  dataSource: any;
+  displayedColumns = ['name', 'group', 'type', 'status', 'action'];
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+
   constructor(private vendorService: VendorsService) { }
 
   ngOnInit(): void {
-    this.vendors$ = this.vendorService.getVendors();
+    this.dataSource = this.vendorService.getVendors();
   }
   searchVendors() {
-    this.vendors$ = this.vendorService.searchVendors(this.searchTerm);
+    this.dataSource = this.vendorService.searchVendors(this.searchTerm);
   }
   
 

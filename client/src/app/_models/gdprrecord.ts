@@ -1,0 +1,31 @@
+export interface GdprRecord {
+    id:                 number;
+    status:             string;
+    gdprRecordYear:     number;
+    gdprCountry:        string;
+    gdprLaw:            string;
+    gdprNote:           string;
+    contractLocation:   string;
+    contractStatus:     string;
+    partnerId:          number;
+    partnerName:        string;
+    partnerAgency:      string;
+    partnerEmail:       string;
+    partnerAddress:     string;
+    vendorId:           number;
+    vendorName:         string;
+    serviceId:          number;
+    serviceName:        string;
+    serviceDescription: string;
+    processId:          number;
+    processName:        string;
+    processCategory:    string;
+    processActivity:    string;
+    processNote:        string;
+    processGdprRequirement: boolean;
+    processSortOrder:   number;
+    created?:           Date;
+    lastEdited?:        Date;
+    lastEditorId?:      number;
+    statusUrl?:         string;   
+}

@@ -10,27 +10,29 @@
             </colgroup>
             <tbody>
                 <tr>
-                    <td> <p class="form-text">Name:</p> </td>
+                    <td> <label class="form-label">Name: </label> </td>
                     <td> <input [(ngModel)]="vendor.name" name="name" cols="*" rows="1" class="form-control"> </td>
                 </tr>
                 <tr>
-                    <td> <p class="form-text">Status:</p> </td>
-                    <td> <input [(ngModel)]="vendor.status" name="status" cols="*" rows="1" class="form-control"> </td>
+                    <td><label class="form-label">Status: </label> </td>
+                    <select name="status" style="width: 250px;" id="" [(ngModel)]="vendor.status" class="form-control">
+                        <option *ngFor="let element of statusList" [value]="element.value"> {{element.value}}</option>
+                    </select>
                 </tr>
                 <tr>
-                    <td> <p class="form-text">Type:</p> </td>
+                    <td><label class="form-label">Type: </label> </td>
                     <td> <input [(ngModel)]="vendor.type" name="type" cols="*" rows="1" class="form-control"> </td>
                 </tr>
                 <tr>
-                    <td> <p class="form-text">Group:</p> </td>
+                    <td><label class="form-label">Group: </label> </td>
                     <td> <input [(ngModel)]="vendor.vendorGroup" name="vendorGroup" cols="*" rows="1" class="form-control"> </td>
                 </tr>
                 <tr>
-                    <td> <p class="form-text">Email:</p> </td>
+                    <td><label class="form-label">Email: </label> </td>
                     <td> <input [(ngModel)]="vendor.email" name="email" cols="*" rows="1" class="form-control"> </td>
                 </tr>
                 <tr>
-                    <td> <p class="form-text">Address:</p> </td>
+                    <td><label class="form-label">Address: </label> </td>
                     <td> <input [(ngModel)]="vendor.address" name="address" cols="*" rows="1" class="form-control"> </td>
                 </tr>                
             </tbody>            

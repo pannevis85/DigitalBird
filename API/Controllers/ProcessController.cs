@@ -39,27 +39,26 @@ namespace API.Controllers
                             .Where(p => p.ServiceId == serviceId)
                             .OrderBy(p => p.SortOrder)
                             .ToListAsync();
-            if (!list.Any()) return BadRequest("Process list is empty");
             return Ok(_mapper.Map<IEnumerable<ProcessDto>>(list));
         }
         [HttpPut("{serviceid}/edit")]
         public async Task<ActionResult> UpdateProcess(ProcessDto processDto) 
         {
-            var process = await _context.Processes.FirstOrDefaultAsync(p => p.Id == processDto.Id);
-            if (process == null) return BadRequest("Process doesnt exist");
-            process.Name = processDto.Name;
-            process.Status = processDto.Status;
-            process.ServiceId = processDto.ServiceId;
-            process.ServiceName = processDto.ServiceName;
-            process.Category = processDto.Category;
-            process.Activity = processDto.Activity;
-            process.Note = processDto.Note;
-            process.GdprRequirement = processDto.GdprRequirement;
-            process.SortOrder = processDto.SortOrder;
-            process.LastEdited = DateTime.Now;
+            var element = await _context.Processes.FirstOrDefaultAsync(x => x.Id == processDto.Id);
+            if (element == null) return BadRequest("Process doesnt exist");
+            element.Name = processDto.ServiceName + "|" +  processDto.Category + "|" + processDto.Activity;
+            element.Status = processDto.Status;
+            element.ServiceId = processDto.ServiceId;
+            element.ServiceName = processDto.ServiceName;
+            element.Category = processDto.Category;
+            element.Activity = processDto.Activity;
+            element.Note = processDto.Note;
+            element.GdprRequirement = processDto.GdprRequirement;
+            element.SortOrder = processDto.SortOrder;
+            element.LastEdited = DateTime.Now;
             try 
             {
-                _context.Processes.Update(process);
+                _context.Processes.Update(element);
                 await _context.SaveChangesAsync();
             }
             catch (Exception e) {
@@ -72,7 +71,7 @@ namespace API.Controllers
         public async Task<ActionResult> CreateProcess(ProcessDto processDto) 
         {
             var process = new Process {
-                Name = processDto.Name,
+                Name = processDto.ServiceName + "|" +  processDto.Category + "|" + processDto.Activity,
                 Status = processDto.Status,
                 ServiceId = processDto.ServiceId,
                 ServiceName = processDto.ServiceName,
@@ -100,7 +99,7 @@ namespace API.Controllers
                 await _context.SaveChangesAsync();
                 return NoContent();
             }
-            catch(Exception e) {
+        catch(Exception e) {
                 return BadRequest("Exception: " + e);
             }
         }

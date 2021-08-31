@@ -29,13 +29,19 @@ namespace API
             {
                 var context = services.GetRequiredService<DataContext>();
                 await context.Database.MigrateAsync();
+                //initial tables need to be uploaded first for foreign keys
+                //when seeding new data, these is phase 1
                 await Seed.SeedUsers(context);
                 await Seed.SeedPartners(context);
-                ///await Seed.SeedContacts(context);
                 await Seed.SeedVendors(context);
                 await Seed.SeedServices(context);
+                //when seeding new data, these is phase 2
+                //await Seed.SeedContacts(context);
                 await Seed.SeedProcesses(context);
                 await Seed.SeedPartnerServices(context);
+                //when seeding new data, these is phase 3
+                await Seed.SeedGdpr(context);
+                
             } 
             catch (Exception e) 
             {

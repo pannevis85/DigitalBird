@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import { GdprEditComponent } from './gdprs/gdpr-edit/gdpr-edit.component';
+import { GdprListComponent } from './gdprs/gdpr-list/gdpr-list.component';
 import { HomeComponent } from './home/home.component';
 import { PartnerDetailComponent } from './partners/partner-detail/partner-detail.component';
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
@@ -34,13 +36,16 @@ const routes: Routes = [
       {path: 'vendors/:vendorid/edit', component: VendorEditComponent},
       {path: 'vendors/:vendorid', component: VendorDetailComponent},
       {path: 'vendors', component: VendorListComponent},
-      {path: 'services/create', component: ServiceEditComponent},
+      {path: 'services/:serviceid/create', component: ServiceEditComponent},
       {path: 'services/:serviceid/edit', component: ServiceEditComponent},
       {path: 'services/:serviceid', component: ServiceDetailComponent},
       {path: 'services', component: ServiceListComponent},
-      {path: 'process/create', component: ProcessEditComponent},
+      //{path: 'process/create', component: ProcessEditComponent},
       {path: 'process/:serviceid/edit', component: ProcessEditComponent},
       
+      {path: 'gdpr/:partnerid/:vendorid/:serviceid/:year', component: GdprListComponent},
+      {path: 'gdpr/:gdprid', component:GdprEditComponent},
+
       {path: 'gdpr', component: HomeComponent},
       {path: 'errors', component: TestErrorsComponent},
       {path: 'not-found', component: NotFoundComponent},

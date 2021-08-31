@@ -1,31 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 /*
 
 */
+.section-container {
+    display: block;
+    align-content:flex-start;
+    padding: 5px;
+    min-width: 250px;
+}
 .form-control{
+    vertical-align: top;
+    display: inline;
     width: 350px;
+    word-wrap: normal;
 }
 .form-group {
     width: 100%;
-    margin: 0px;
+    margin: 15px;
     padding: 0px;
 }
 
-.form-input {
-    width:100%;
-    background-color: lightgray;
-    color: black;
-    min-width: 400px;
-    min-height: 35px;
-    border: 2px;
-    border-style: outset;
-    
-    font-style: oblique;
-    padding: 0px;
-    display:inline-block;
-    align-items: center;
-}
 .form-textarea {
     background-color: whitesmoke;
     color: black;
@@ -43,10 +38,20 @@
     color: black;
 }
 .form-label {
-    display: inline-block;
+    display:block;
+    float: right;
     clear: left;
-    width: 100px;
-    text-align: right;
+    min-width: 50px;
+    text-align: right;   
+    
+}
+.form-field {
+    display:block;
+    float: left;
+    clear: left;
+    min-width: 30px;
+    margin-left: 5px;
+    text-align: left;       
 }
 .mat-dialog-container {
     background-color: whitesmoke;
@@ -59,18 +64,32 @@
     align-items: center;
 
 }
+.mat-grid-tile {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    position: absolute;
+    vertical-align: top;
+}
 .mat-form {
     display:inline-block;
     flex-direction: column;
     width: 100%;
 }
 
-
+.mat-header-cell{
+    padding-right: 20px;
+}
+td.mat-cell {
+    padding: 20px;
+}
 .mat-table {
     overflow: auto;
     max-height: 500px;
   }
 .th-col {
+    
+    margin-right: 20px;
     padding-right: 20px;
     background-color: whitesmoke;
     color: black;
@@ -82,8 +101,12 @@
 .col-long {
     width: 250px;
 }
+.col-very-long {
+    width: 350px;
+}
 .td-col {
     margin-right: 20px;
+    padding-right: 20px;
     color: black;
     text-align: left;
     border-top: 2px solid grey;

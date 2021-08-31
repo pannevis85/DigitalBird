@@ -36,14 +36,15 @@
 </div>
 <div style="margin-top: 20px;">
     <div class="horizontal-container">
-        <h2 class="title">Partner services </h2>
+        <h2 class="title">Partner services </h2>        
     </div>
-    <button (click)="openDialog('Add',{})" class="btn btn-info">Add Service</button>
+    <p>Open service below to go to list of gdpr records and requirements</p>
+    <button title="Add new service" (click)="openDialog('Add',{})"><img src="./assets/images/icon-add.png" alt="Add" class="icon"></button>
     <div *ngIf="dataSource">
-        <div *ngIf="dataSource.length == 0">
+        <div *ngIf="dataSource.length === 0">
             <p>Partner doesnt have any services registered</p>
         </div>
-        <div>
+        <div  *ngIf="dataSource.length !== 0">
             <table mat-table [dataSource]="dataSource" class="mat-table">
                 <ng-container matColumnDef="vendorName">
                     <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Vendor </th>

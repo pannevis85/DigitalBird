@@ -14,21 +14,22 @@ export class GdprEditComponent implements OnInit {
   gdprId: number;
   gdprRecord: GdprRecord;
   contractStatusList = [
-    { value:'Blank record', display:"Blank Record"}, 
-    { value:'New', display:"New"}, 
+    { value:'Blank record', display:'Blank Record'}, 
+    { value:'New', display:'New'}, 
     { value:'Active', display:'Active'},
     { value:'Inactive', display:'Inactive'},
     { value:'In process', display:'In process'},
     { value:'Under negotiation', display:'Under negotiation'},
-    { value:'Waiting partner', display:'Waiting for partner'},
+    { value:'Waiting for partner', display:'Waiting for partner'},
     { value:'Signed', display:'Signed'},
     { value:'Archived', display:'Archived'}];
   statusList = [
-    { value:'Blank record', display:"Blank Record"}, 
-    { value: 'New', display:"New"}, 
+    { value:'Blank record', display:'Blank Record'}, 
+    { value:'New', display:'New'}, 
     { value:'Active', display:'Active'},
     { value:'Inactive', display:'Inactive'},
     { value:'In process', display:'In process'},
+    { value:'Completed', display:'Completed'},
     { value:'Archived', display:'Archived'}];
   lawList = ['EU Gdpr','US Big Eye','NSA'];
   

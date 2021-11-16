@@ -37,10 +37,10 @@ namespace API
                 await Seed.SeedServices(context);
                 //when seeding new data, these is phase 2
                 //await Seed.SeedContacts(context);
-                await Seed.SeedProcesses(context);
-                await Seed.SeedPartnerServices(context);
+                //await Seed.SeedProcesses(context);
+                //await Seed.SeedPartnerServices(context);
                 //when seeding new data, these is phase 3
-                await Seed.SeedGdpr(context);
+                //await Seed.SeedGdpr(context);
                 
             } 
             catch (Exception e) 

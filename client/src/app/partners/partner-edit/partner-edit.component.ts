@@ -16,15 +16,17 @@ export class PartnerEditComponent implements OnInit {
   partner: Partner;
   isNewPartner: boolean;
   agencyList = [
-    { value: 'OMG', display:"OMG"}, 
+    { value:'OMG', display:'OMG'}, 
     { value:'PHD', display:'PHD'},
     { value:'OMD', display:'OMD'},
+    { value:'GFMO', display:'GFMO'},
     { value:'OTHER', display:'OTHER'}];
   statusList = [
-    { value: 'New', display:"New"}, 
+    { value:'New', display:'New'}, 
     { value:'Active', display:'Active'},
     { value:'Inactive', display:'Inactive'},
-    { value:'in Process', display:'In process'},
+    { value:'In process', display:'In process'},
+    { value:'Lost', display:'Lost'},
     { value:'Archived', display:'Archived'}];
   
   @ViewChild('editForm') editForm: NgForm;

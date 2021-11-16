@@ -47,19 +47,19 @@
         <div  *ngIf="dataSource.length !== 0">
             <table mat-table [dataSource]="dataSource" class="mat-table">
                 <ng-container matColumnDef="vendorName">
-                    <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Vendor </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 30%;"> Vendor </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.vendorName}} </td>
                 </ng-container>
                 <ng-container matColumnDef="serviceName">
-                    <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Service </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 30%;"> Service </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.serviceName}} </td>
                 </ng-container>
                 <ng-container matColumnDef="year">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> Year </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 10%;"> Year </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.year}} </td>
                 </ng-container>
                 <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> Status </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col"  style="width: 10%;"> Status </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> 
                         <img class="icon" src="{{element.statusUrl}}" alt="">
                         <br>
@@ -70,7 +70,7 @@
                     <th mat-header-cell *matHeaderCellDef  class="th-col"  style="color: blue;"> Action </th>
                     <td mat-cell *matCellDef="let element" class="td-col action-link " style="color: blue;">
                         <a routerLink='/gdpr/{{partner.id}}/{{element.vendorId}}/{{element.serviceId}}/{{element.year}}' routerLinkActive='active' style="text-decoration: none">
-                            <button title="Open"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button> | 
+                            <button title="Open"><img src="./assets/images/icon-gdpr.png" alt="Open gdpr list" class="icon"></button> | 
                         </a>                        
                         <button (click)="openDialog('Update',element)" title="Edit"><img src="./assets/images/icon-edit.png" alt="Edit" class="icon"></button> | 
                         <button (click)="openDialog('Delete',element)" title="Delete"><img src="./assets/images/icon-bin.png" alt="Delete" class="icon"></button>  

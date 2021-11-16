@@ -33,7 +33,7 @@ export class HelperService {
       case "archived":
         statusUrl = "icon-circle-gray.png"
         break;
-      case "complete":
+      case "completed":
         statusUrl = "icon-circle-green.png"
         break;
       case "incomplete":

@@ -37,6 +37,7 @@ export class ServiceEditComponent implements OnInit {
   }
   
   ngOnInit(): void {  
+    
     this.serviceId = Number(this.activatedRoute.snapshot.paramMap.get('serviceid'))
     //when creating new partner, partnerid is missing from url, so it will default to 0
     this.isNewService = (this.serviceId === 0) ? true : false;
@@ -45,6 +46,7 @@ export class ServiceEditComponent implements OnInit {
       this.service = newObject;
     }
     else { 
+      console.log(this.serviceId + " is serviceId");
       this.loadService(); 
     }
   }

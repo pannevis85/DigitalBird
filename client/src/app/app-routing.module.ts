@@ -36,7 +36,7 @@ const routes: Routes = [
       {path: 'vendors/:vendorid/edit', component: VendorEditComponent},
       {path: 'vendors/:vendorid', component: VendorDetailComponent},
       {path: 'vendors', component: VendorListComponent},
-      {path: 'services/:serviceid/create', component: ServiceEditComponent},
+      {path: 'services/create', component: ServiceEditComponent},
       {path: 'services/:serviceid/edit', component: ServiceEditComponent},
       {path: 'services/:serviceid', component: ServiceDetailComponent},
       {path: 'services', component: ServiceListComponent},

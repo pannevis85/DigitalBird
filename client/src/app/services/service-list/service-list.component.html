@@ -4,15 +4,15 @@
      <table mat-table [dataSource]="dataSource" class="mat-table">
 
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Name </th>
+            <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 20%;"> Name </th>
             <td mat-cell *matCellDef="let element" class="td-col"> {{element.name}} </td>
         </ng-container>
         <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Group </th>
+            <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 60%;"> Description </th>
             <td mat-cell *matCellDef="let element" class="td-col"> {{element.description}} </td>
         </ng-container>
         <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef class="th-col"> Status </th>
+            <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 15%;"> Status </th>
             <td mat-cell *matCellDef="let element" class="td-col"> 
                 <img class="icon" src="{{element.statusUrl}}" alt="">
                 <br>
@@ -21,11 +21,11 @@
         </ng-container>
 
         <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef  class="th-col"  style="color: blue;"> Action </th>
+            <th mat-header-cell *matHeaderCellDef  class="th-col"  style="width: auto; color: blue;"> Action </th>
             <td mat-cell *matCellDef="let element" class="td-col action-link " style="color: blue;">            
                 <div *ngIf="element.id !== 0">
                     <a routerLink='/services/{{element.id}}' routerLinkActive='active' style="text-decoration: none">
-                        <button title="Open"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button>
+                        <button title="Open service"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button>
                     </a> 
                 </div>
                 

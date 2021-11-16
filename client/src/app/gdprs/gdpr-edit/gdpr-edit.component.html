@@ -1,7 +1,7 @@
 <div *ngIf="gdprRecord">
-    <div class="d-flex align-items-start mb-3" style="height: 200px;">
+    <div class="d-flex align-items-start mb-3" style="height: 150px;">
         
-        <div style="min-width: 20%;">
+        <div style="width: 40%;">
             <h2 class="title">{{gdprRecord.partnerName}}</h2>
             <table class="form-table">
                 <tbody>
@@ -20,7 +20,7 @@
                 </tbody>
             </table>
         </div>
-        <div style="min-width: 25%;">
+        <div style="width: 40%;">
             <h2 class="title">{{gdprRecord.vendorName}}</h2>
             <table class="form-table">
                 <tbody>
@@ -37,34 +37,35 @@
                 </tbody>
             </table>
         </div>
-        <div style="min-width: 40%;">
-            <h2 class="title">Process of {{gdprRecord.serviceName}}</h2>
-            <table class="form-table">
-                <tbody>
-                    <tr>
-                        <td><label class="form-label">Category: </label></td>
-                        <td><label class="form-field">{{gdprRecord.processCategory}} </label></td>
-                    </tr>
-                    <tr>
-                        <td><label class="form-label">Activity: </label></td>
-                        <td><label class="form-field">{{gdprRecord.processActivity}} </label></td>
-                    </tr>
-                    <tr>
-                        <td><label class="form-label">Note: </label></td>
-                        <td><label class="form-field">{{gdprRecord.processNote}} </label></td>
-                    </tr>
-                    <tr>
-                        <td><label class="form-label">Gdpr: </label></td>
-                        <td><label class="form-field">{{gdprRecord.processGdprRequirement}} </label></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
+    </div>
+    <div style="width: 75%;">
+        <h2 class="title">{{gdprRecord.serviceName}} process element</h2>
+        <table class="form-table">
+            <tbody>
+                <tr>
+                    <td><label class="form-label">Category: </label></td>
+                    <td><label class="form-field">{{gdprRecord.processCategory}} </label></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Activity: </label></td>
+                    <td><label class="form-field">{{gdprRecord.processActivity}} </label></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Note: </label></td>
+                    <td><label class="form-field">{{gdprRecord.processNote}} </label></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Gdpr: </label></td>
+                    <td><label class="form-field">{{gdprRecord.processGdprRequirement}} </label></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
-    <div>
+    <div style="margin-top: 20px;">
         <h2>Gdpr Record</h2>
-        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateGdpr()" style="margin-top: 20px;">
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateGdpr()">
             <table class="form-table">
                 <colgroup>
                     <col style="width: 100px;">

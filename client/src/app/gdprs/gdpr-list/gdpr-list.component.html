@@ -1,4 +1,4 @@
-<h2 class="title"> Process Gdpr record list </h2>
+<h2 class="title"> Gdpr record list </h2>
 <div *ngIf="!dataSource">
     <p>This service has no process list</p>
 </div>
@@ -24,24 +24,24 @@
                 </tr>
             </tbody>
         </table>
-        <p>List of gdpr requirements in process of service, create and/or open record below for details</p>
+        <p>List elements in the service process where gdpr activity is required, create and/or open record below for details</p>
         <div>
             <table mat-table [dataSource]="dataSource" class="mat-table">
 
                 <ng-container matColumnDef="category">
-                    <th mat-header-cell *matHeaderCellDef class="th-col col-very-long"> Category </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 25%;"> Category </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.processCategory}} </td>
                 </ng-container>
                 <ng-container matColumnDef="activity">
-                    <th mat-header-cell *matHeaderCellDef class="th-col col-long"> Activity </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 30%;"> Activity </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.processActivity}} </td>
                 </ng-container>
                 <ng-container matColumnDef="gdprRequirement">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> Gdpr </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 5%;"> Gdpr </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.processGdprRequirement}} </td>
                 </ng-container>
                 <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> Status </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 10%;"> Status </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> 
                         <img class="icon" src="{{element.statusUrl}}" alt="">
                         <br>
@@ -49,7 +49,7 @@
                     </td>
                 </ng-container>
                 <ng-container matColumnDef="contractStatus">
-                    <th mat-header-cell *matHeaderCellDef class="th-col"> Contract Status </th>
+                    <th mat-header-cell *matHeaderCellDef class="th-col" style="width: 15%;"> Contract Status </th>
                     <td mat-cell *matCellDef="let element" class="td-col"> {{element.contractStatus}} </td>
                 </ng-container>
 
@@ -57,13 +57,13 @@
                     <th mat-header-cell *matHeaderCellDef  class="th-col"  style="color: blue;"> Action </th>
                     <td mat-cell *matCellDef="let element" class="td-col action-col " style="color: blue;">
                         <div *ngIf="element.id === 0">
-                            <button (click)="createGdprRecord(element)" title="Create"><img src="./assets/images/icon-add.png" alt="Create" class="icon"></button>
+                            <button (click)="createGdprRecord(element)" title="Create"><img src="./assets/images/icon-add.png" alt="Create gdpr record" class="icon"></button>
                         </div>                       
                         <div *ngIf="element.id !== 0">
                             <a routerLink='/gdpr/{{element.id}}' routerLinkActive='active' style="text-decoration: none">
-                                <button title="Open"><img src="./assets/images/icon-scroll.png" alt="Open" class="icon"></button> | 
+                                <button title="Open gdpr record"><img src="./assets/images/icon-gdpr.png" alt="Open" class="icon"></button> | 
                             </a> 
-                            <button (click)="deleteGdprRecord(element.id)" title="Delete"><img src="./assets/images/icon-bin.png" alt="Delete" class="icon"></button>  
+                            <button (click)="deleteGdprRecord(element.id)" title="Delete"><img src="./assets/images/icon-bin.png" alt="Delete gdpr record" class="icon"></button>  
                         </div>
                         
                     </td>

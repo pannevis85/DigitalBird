@@ -96,21 +96,22 @@ td.mat-cell {
     text-align: left;    
     font-size: 14px;
     border-top: 2px solid grey;
-    min-width: 80px;
-}
-.col-long {
-    width: 250px;
-}
-.col-very-long {
-    width: 350px;
 }
 .td-col {
-    margin-right: 20px;
-    padding-right: 20px;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
     color: black;
     text-align: left;
     border-top: 2px solid grey;
-    word-wrap: normal;
+    margin-right: 20px;
 }
 .mat-col {
     background-color: whitesmoke;

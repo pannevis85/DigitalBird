@@ -62,11 +62,11 @@ namespace API.Controllers
                             //Id = 0,
                             Status = "false",
                             GdprRecordYear = year,
-                            GdprCountry = "Blank record",
-                            GdprLaw = "Blank record",
-                            GdprNote = "Blank record",
-                            ContractLocation = "Blank record",
-                            ContractStatus = "Blank record",
+                            GdprCountry = "country to be defined",
+                            GdprLaw = "law to be defined",
+                            GdprNote = "very important note",
+                            ContractLocation = "contract location",
+                            ContractStatus = "New",
                             PartnerId = partner.Id,
                             PartnerName = partner.Name,
                             PartnerAgency = partner.Agency,
@@ -112,8 +112,8 @@ namespace API.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreateGdpr(GdprRecordDto gdprDto) 
         {
-            gdprDto.Status = "Blank record";
-            gdprDto.ContractStatus = "Blank record";
+            gdprDto.Status = "New";
+            gdprDto.ContractStatus = "New";
             _context.GdprRecords.Add(_mapper.Map<GdprRecord>(gdprDto));
             await _context.SaveChangesAsync();
             return NoContent();

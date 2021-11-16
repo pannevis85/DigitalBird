@@ -17,9 +17,11 @@ export class VendorEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   mySubscription: any;
   statusList = [
+    { value:'New', display:'New'}, 
     { value:'Active', display:'Active'},
     { value:'Inactive', display:'Inactive'},
     { value:'In process', display:'In process'},
+    { value:'Lost', display:'Lost'},
     { value:'Archived', display:'Archived'}];
 
 

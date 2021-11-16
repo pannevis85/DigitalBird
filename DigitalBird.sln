@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19ECC2AD-3230-4A87-AA14-01D4CD8ACF03}"
+	ProjectSection(SolutionItems) = preProject
+		.filenesting.json = .filenesting.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +32,11 @@ Global
 		{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}.Release|x64.Build.0 = Release|Any CPU
 		{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}.Release|x86.ActiveCfg = Release|Any CPU
 		{61E0B134-7A95-4CD2-8B7C-F9039679BFDB}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02588C72-33ED-427C-8561-19067FE54B52}
 	EndGlobalSection
 EndGlobal

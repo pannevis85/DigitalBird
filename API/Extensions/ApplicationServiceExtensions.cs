@@ -22,7 +22,6 @@ namespace API.Extensions
             //Add datacontext
             //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("Humse")));
             services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("SqlExpress")));
-            //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlite(config.GetConnectionString("SqLite")));
 
             return services;
         }   

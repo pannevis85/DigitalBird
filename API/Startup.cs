@@ -64,11 +64,13 @@ namespace API
             app.UseAuthorization();
 
             //Makes static files
-            
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

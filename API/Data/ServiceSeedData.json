@@ -1,82 +1,106 @@
 [
-	{
-		"Name": "Google Display Network",
-		"Status": "active",
-		"Description": "google stuff",
-		"Created": "2019-10-03",
-		"LastEdited": "2019-12-01",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Google Programmatic",
-		"Status": "active",
-		"Description": "google stuff",
-		"Created": "2020-02-10",
-		"LastEdited": "2020-03-08",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Google Search",
-		"Status": "active",
-		"Description": "google stuff",
-		"Created": "2019-11-30",
-		"LastEdited": "2020-01-11",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Web Analytics & Tag Management",
-		"Status": "active",
-		"Description": "analytics",
-		"Created": "2019-04-04",
-		"LastEdited": "2019-05-01",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Search Engine Optimization",
-		"Status": "active",
-		"Description": "SEO",
-		"Created": "2021-08-23",
-		"LastEdited": "2021-09-24",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "eDM Marketing",
-		"Status": "active",
-		"Description": "whatever eDM is",
-		"Created": "2019-02-22",
-		"LastEdited": "2019-05-27",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Programmatic Buying",
-		"Status": "active",
-		"Description": "programmatic",
-		"Created": "2019-07-30",
-		"LastEdited": "2019-10-11",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Social Content Management",
-		"Status": "inactive",
-		"Description": "other social",
-		"Created": "2019-06-22",
-		"LastEdited": "2019-07-17",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Paid Social (Facebook, Instragram)",
-		"Status": "active",
-		"Description": "facebook",
-		"Created": "2018-12-23",
-		"LastEdited": "2019-03-02",
-		"LastEditorId": 1
-	},
-	{
-		"Name": "Negotiated Display",
-		"Status": "active",
-		"Description": "display",
-		"Created": "2019-09-02",
-		"LastEdited": "2019-11-30",
-		"LastEditorId": 1
-	}
+  {
+    "Name": "Doubleverify",
+    "Status": "Active",
+    "Description": "Doubleverify",
+    "Created": "2021-08-08",
+    "LastEdited": "2021-10-22",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Facebook",
+    "Status": "Active",
+    "Description": "Facebook",
+    "Created": "2021-01-22",
+    "LastEdited": "2021-03-12",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "DBM",
+    "Status": "Active",
+    "Description": "DBM",
+    "Created": "2020-08-27",
+    "LastEdited": "2020-10-13",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Doubleclick Adserver",
+    "Status": "Active",
+    "Description": "Doubleclick Adserver",
+    "Created": "2021-08-27",
+    "LastEdited": "2021-09-12",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Google GDN",
+    "Status": "Active",
+    "Description": "Google GDN",
+    "Created": "2020-08-17",
+    "LastEdited": "2020-09-15",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Google Search",
+    "Status": "Active",
+    "Description": "Google Search",
+    "Created": "2021-09-04",
+    "LastEdited": "2021-10-06",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Google Youtube",
+    "Status": "Active",
+    "Description": "Google Youtube",
+    "Created": "2021-06-17",
+    "LastEdited": "2021-08-07",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "LinkedIn",
+    "Status": "Active",
+    "Description": "LinkedIn",
+    "Created": "2021-04-28",
+    "LastEdited": "2021-07-07",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Snapchat",
+    "Status": "Active",
+    "Description": "Snapchat",
+    "Created": "2021-06-23",
+    "LastEdited": "2021-09-30",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Technikai - Kreativ management",
+    "Status": "Active",
+    "Description": "Technikai - Kreativ management",
+    "Created": "2021-10-04",
+    "LastEdited": "2021-12-16",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Kenshoo",
+    "Status": "Active",
+    "Description": "Kenshoo",
+    "Created": "2021-09-23",
+    "LastEdited": "2021-10-23",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "Trakken Adserver",
+    "Status": "Active",
+    "Description": "Trakken Adserver",
+    "Created": "2021-08-10",
+    "LastEdited": "2021-11-18",
+    "LastEditorId": 1
+  },
+  {
+    "Name": "webformance",
+    "Status": "Active",
+    "Description": "webformance",
+    "Created": "2020-10-29",
+    "LastEdited": "2020-12-19",
+    "LastEditorId": 1
+  }
 ]

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210827113253_Gdpr")]
-    partial class Gdpr
+    [Migration("20211117094831_ConfigurationCheck")]
+    partial class ConfigurationCheck
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

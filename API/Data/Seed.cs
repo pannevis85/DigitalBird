@@ -17,7 +17,7 @@ namespace API.Data
 
             var jsonData = await System.IO.File.ReadAllTextAsync("Data/UserSeedData.json");
             var list = JsonSerializer.Deserialize<List<AppUser>>(jsonData);
-            if (list == null) return;
+            //if (list == null) return;
             foreach (var user in list)
             {
                 using var hmac = new HMACSHA512();

@@ -20,8 +20,8 @@ namespace API.Extensions
             //AutoMapper
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             //Add datacontext
-            //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("Humse")));
-            services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("SqlExpress")));
+            services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("Humse")));
+            //services.AddDbContext<API.Data.DataContext>(option => option.UseSqlServer(config.GetConnectionString("SqlExpress")));
 
             return services;
         }   

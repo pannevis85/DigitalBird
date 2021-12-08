@@ -36,7 +36,7 @@ namespace API
                 await Seed.SeedVendors(context);
                 await Seed.SeedServices(context);
                 //when seeding new data, these is phase 2
-                //await Seed.SeedContacts(context);
+                //await Seed.SeedContacts(context); //contacts were never implemented
                 //await Seed.SeedProcesses(context);
                 //await Seed.SeedPartnerServices(context);
                 //when seeding new data, these is phase 3

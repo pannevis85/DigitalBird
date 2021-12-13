@@ -31,10 +31,10 @@ namespace API
                 await context.Database.MigrateAsync();
                 //initial tables need to be uploaded first for foreign keys
                 //when seeding new data, these is phase 1
-                await Seed.SeedUsers(context);
-                await Seed.SeedPartners(context);
-                await Seed.SeedVendors(context);
-                await Seed.SeedServices(context);
+                //await Seed.SeedUsers(context);
+                //await Seed.SeedPartners(context);
+                //await Seed.SeedVendors(context);
+                //await Seed.SeedServices(context);
                 //when seeding new data, these is phase 2
                 //await Seed.SeedContacts(context); //contacts were never implemented
                 //await Seed.SeedProcesses(context);

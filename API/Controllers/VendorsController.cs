@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class VendorsController : BaseApiController
     {
         private DataContext _context { get; }

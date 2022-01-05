@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class GdprController : BaseApiController
     {
         private readonly DataContext _context;

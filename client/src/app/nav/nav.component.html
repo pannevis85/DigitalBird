@@ -5,16 +5,19 @@
         <a class="navbar-brand" routerLink='/' style="width: 40%;"> Digital Bird </a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
            <ul class="navbar-nav me-2">
+               <ng-container>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/partners' routerLinkActive='active'>Partners</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/vendors' routerLinkActive='active'>Vendors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/services' routerLinkActive='active'>Services</a>
+                </li>
+               </ng-container>
                 <ng-container  *ngIf='accountService.currentUserToken$ | async' >
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink='/partners' routerLinkActive='active'>Partners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink='/vendors' routerLinkActive='active'>Vendors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink='/services' routerLinkActive='active'>Services</a>
-                    </li>
+                    
                 </ng-container>
             </ul>
 

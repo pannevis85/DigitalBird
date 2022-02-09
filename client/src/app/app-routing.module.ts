@@ -24,8 +24,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {
     path:'',
-    runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
+    //runGuardsAndResolvers: 'always',
+    //canActivate: [AuthGuard], //I disabled the autorization requirement
     children: [
       {path: 'users/:userid', component: UserEditComponent, canDeactivate:[PreventUnsavedChangesGuard]},
       {path: 'partners/create', component: PartnerEditComponent},

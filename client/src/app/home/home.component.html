@@ -3,7 +3,7 @@
         <h1> Welcome to DigitalBird!</h1>
         <p class="lead">GDPR beaurocracy record keeping tool!! YAY!</p>
         <div class="text-center">
-            <button (click)="registerToggle()" *ngIf="!(accountService.currentUserToken$ | async)" class="btn btn-primary btn-lg mr-2">Register</button>
+            <button (click)="registerToggle()" *ngIf="!(accountService.currentUserToken$ | async)" class="btn btn-primary btn-lg mr-2" hidden>Register</button>
             <button class="btn btn-info btn-lg ">Learn more</button>
         </div>
 

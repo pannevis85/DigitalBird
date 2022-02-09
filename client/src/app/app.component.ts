@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     const user: UserToken = JSON.parse(localStorage.getItem('user'));
     if(user != null) {
       this.AccountService.setCurrentUser(user);
-      console.log("user set from token");
+      //console.log("user set from token");
     }
     
   }

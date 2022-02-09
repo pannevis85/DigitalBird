@@ -1,0 +1,12 @@
+[
+    {
+        "UserName": "rudolf",
+        "Status": "happy",
+        "PasswordHash": "password",
+        "PasswordSalt": "password",
+        "Email": "rudolf.vanderwalt@omnicommediagroup.com",
+        "UserRole": "admin",
+        "Created": "2021-11-11",
+        "LastActive": "2022-02-03"
+    }
+]

@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:33283",
-      "sslPort": 44327
+      "applicationUrl": "http://emea-hu-alt2:8080",
+      "sslPort": 0
     }
   },
   "profiles": {
